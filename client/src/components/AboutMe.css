@@ -3,5 +3,40 @@
   height: 25%;
   border-radius: 10% 30%;
   object-fit: cover;
-  border: 0.5em solid #98e4f2;
+  border: 0.5em solid #1098ad;
+}
+
+h2 {
+  font-size: 2em;
+  color: #1098ad;
+}
+
+.bubble {
+  width: 6em;
+  height: 6em;
+  background-color: #1098ad;
+  color: white;
+  font-weight: bold;
+  padding: 1em;
+  /* margin: 0,5em; */
+  border-radius: 50%;
+  border: 2px solid #007b83; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.bubble:hover {
+  background-color: #79e8f0;
+  border: 2px solid #42ef65;
+  color: rgb(239, 122, 122);
+}
+
+.blue {
+  /* TODO> adding colors for each of the circles, 
+  and then removing some props from the bubble selector */
+  background-color: #1098ad;
+  border: 2px solid #007b83; 
 }

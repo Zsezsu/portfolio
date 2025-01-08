@@ -8,18 +8,18 @@ function AboutMe() {
       <figure>
         <img src={profilePicture} alt='profile' className='profile-picture' />
       </figure>
-      <section>
+      <article>
         <h2>About Me</h2>
-        <figure>
-          <figcaption>Transparency</figcaption>
-          <figcaption>Honesty</figcaption>
-          <figcaption>Growth Mindset</figcaption>
-          <figcaption>Self-awareness</figcaption>
-          <figcaption>Environmental awareness</figcaption>
-          <figcaption>Progression</figcaption>
-          <figcaption>Perseverance</figcaption>
-        </figure>
-      </section>
+        <section className='bubbles'>
+          <figure className='bubble blue'>Honesty</figure>
+          <figure className='bubble green'>Accuracy</figure>
+          <figure className='bubble'>Growth Mindset</figure>
+          <figure className='bubble'>Self-awareness</figure>
+          <figure className='bubble'>Environmental awareness</figure>
+          <figure className='bubble'>Progression</figure>
+          <figure className='bubble'>Perseverance</figure>
+        </section>
+      </article>
     </>
   );
 }

@@ -1,3 +1,5 @@
+
+
 .profile-picture {
   width: 25%;
   height: 25%;
@@ -9,34 +11,48 @@
 h2 {
   font-size: 2em;
   color: #1098ad;
+  padding: 20px;
+}
+
+.bubble-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bubble-1 {
+  align-self: flex-start;
+}
+
+.bubble-2 {
+  align-self: stretch;
+}
+
+.bubble-3 {
+  align-self: flex-end;
+  flex-grow: 1;
+}
+
+.bubble-4 {
+  flex-grow: 1;
+  width: 100px;
 }
 
 .bubble {
-  width: 6em;
-  height: 6em;
-  background-color: #1098ad;
-  color: white;
-  font-weight: bold;
-  padding: 1em;
-  /* margin: 0,5em; */
-  border-radius: 50%;
-  border: 2px solid #007b83; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
+  flex-shrink: 1;
 }
 
 .bubble:hover {
   background-color: #79e8f0;
   border: 2px solid #42ef65;
   color: rgb(239, 122, 122);
+  cursor: pointer;
 }
 
 .blue {
   /* TODO> adding colors for each of the circles, 
   and then removing some props from the bubble selector */
   background-color: #1098ad;
-  border: 2px solid #007b83; 
+  border: 2px solid #007b83;
 }

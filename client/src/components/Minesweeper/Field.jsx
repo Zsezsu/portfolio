@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { ClickHandler } from "./Minesweeper";
 
 function Field({ field }) {
@@ -6,9 +6,6 @@ function Field({ field }) {
     const onClick = useContext(ClickHandler);
 
     console.log(onClick)
-    // function handleClick(){
-
-    // }
 
   return (
     <div id={field.id} onClick={onClick}>

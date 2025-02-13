@@ -36,7 +36,6 @@ function Minesweeper() {
   }, []);
 
   function handleClick() {
-    //useContext-et meg kell nézni, mert le kell jutnia a Fieldbe
   }
 
   return (

@@ -1,4 +1,4 @@
-import BOMB_IMG from "./assets/minesweeper_bomb.png";
+import BOMB_IMG from "../assets/minesweeper_bomb.png";
 
 function placeBombs(board, numberOfBombs) {
   const randomNumbers = [];

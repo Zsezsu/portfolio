@@ -1,13 +1,13 @@
 import { useState, useContext } from "react";
 import { ClickHandler } from "./Minesweeper";
-import hiddenField from "./assets/32px-Minesweeper_unopened_square.svg.png";
+import hiddenField from "./assets/minesweeper_unopened.png";
 
 function Field({ field }) {
-  const [fieldImage, setFieldImage] = useState(hiddenField);
+  const [fieldImage, setFieldImage] = useState(field.img);
   const onClick = useContext(ClickHandler);
 
   return (
-    <div id={field.id} onClick={onClick}>
+    <div className="field" id={field.id} onClick={onClick}>
       <img src={fieldImage} />
     </div>
   );

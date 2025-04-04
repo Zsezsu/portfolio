@@ -107,6 +107,9 @@ export function generateBoard(boardSize) {
         y: colIndex,
         isMine: false,
         hidden: true,
+        hiddenFieldImg: HIDDEN_FIELD,
+        flagged: false,
+        flaggedFieldImg: FLAG_FIELD,
       };
       rows.push(field);
     }

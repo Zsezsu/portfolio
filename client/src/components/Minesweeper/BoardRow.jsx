@@ -1,10 +1,10 @@
 import Field from "./Field";
 
-function BoardRow({ rows }) {
+function BoardRow({ rows, isGameOver }) {
   return (
     <div className='board-row'>
       {rows.map((field) => (
-        <Field key={field.id} field={field} />
+        <Field key={field.id} field={field} isGameOver={isGameOver} />
       ))}
     </div>
   );

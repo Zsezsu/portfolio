@@ -25,11 +25,15 @@ function placeBombs(board, numberOfBombs) {
   }
   for (const randomNumber of randomNumbers) {
     const placeForBomb =
-      randomNumber >= numberOfBombs ? `${randomNumber}` : `0${randomNumber}`;
+      randomNumber >= 10 ? `${randomNumber}` : `0${randomNumber}`;
     const field = board[placeForBomb[0]][placeForBomb[1]];
     field.isMine = true;
     field.img = BOMB_IMG;
   }
+}
+
+function generateRandomNumber(size) {
+  return Math.floor(Math.random() * size * size);
 }
 
 function placeImgOnFields(board) {
@@ -90,10 +94,6 @@ function checkFieldAround(board, field) {
     }
   }
   assignFieldImage(field, bombCount);
-}
-
-function generateRandomNumber(size) {
-  return Math.floor(Math.random() * size * size);
 }
 
 export function generateBoard(boardSize) {

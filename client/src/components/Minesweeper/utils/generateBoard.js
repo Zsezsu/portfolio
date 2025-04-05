@@ -11,21 +11,28 @@ import SIX_FIELD from "../assets/minesweeper_6.png";
 import SEVEN_FIELD from "../assets/minesweeper_7.png";
 import EIGHT_FIELD from "../assets/minesweeper_8.png";
 
+const FIELD_IMAGES = [
+  EMPTY_FIELD,
+  ONE_FIELD,
+  TWO_FIELD,
+  THREE_FIELD,
+  FOUR_FIELD,
+  FIVE_FIELD,
+  SIX_FIELD,
+  SEVEN_FIELD,
+  EIGHT_FIELD,
+];
+
 function placeBombs(board, numberOfBombs) {
-  const randomNumbers = [];
-  let isGenerate = true;
-  while (isGenerate) {
-    let randomNumber = generateRandomNumber(numberOfBombs);
-    if (!randomNumbers.includes(randomNumber)) {
-      randomNumbers.push(randomNumber);
-    }
-    if (randomNumbers.length === numberOfBombs) {
-      isGenerate = false;
+  const bombPositions = [];
+  while (bombPositions.length < numberOfBombs) {
+    let bombPosition = generateRandomNumber(numberOfBombs);
+    if (!bombPositions.includes(bombPosition)) {
+      bombPositions.push(bombPosition);
     }
   }
-  for (const randomNumber of randomNumbers) {
-    const placeForBomb =
-      randomNumber >= 10 ? `${randomNumber}` : `0${randomNumber}`;
+  for (const position of bombPositions) {
+    const placeForBomb = position >= 10 ? `${position}` : `0${position}`;
     const field = board[placeForBomb[0]][placeForBomb[1]];
     field.isMine = true;
     field.img = BOMB_IMG;
@@ -39,7 +46,7 @@ function generateRandomNumber(size) {
 function placeImgOnFields(board) {
   for (const boardRow of board) {
     for (const field of boardRow) {
-      if(!field.isMine){
+      if (!field.isMine) {
         checkFieldAround(board, field);
       }
     }
@@ -47,47 +54,19 @@ function placeImgOnFields(board) {
 }
 
 function assignFieldImage(field, bombCount) {
-  switch (bombCount) {
-    case 0:
-      field.img = EMPTY_FIELD;
-      break;
-    case 1:
-      field.img = ONE_FIELD;
-      break;
-    case 2:
-      field.img = TWO_FIELD;
-      break;
-    case 3:
-      field.img = THREE_FIELD;
-      break;
-    case 4:
-      field.img = FOUR_FIELD;
-      break;
-    case 5:
-      field.img = FIVE_FIELD;
-      break;
-    case 6:
-      field.img = SIX_FIELD;
-      break;
-    case 7:
-      field.img = SEVEN_FIELD;
-      break;
-    case 8:
-      field.img = EIGHT_FIELD;
-      break;
-  }
+  field.img = FIELD_IMAGES[bombCount];
 }
 
 function checkFieldAround(board, field) {
   const boardMin = 0;
   const boardMax = board.length;
   let bombCount = 0;
+  const isInRange = (coordinate) => coordinate >= boardMin && coordinate < boardMax;
+  
   for (let rowIndex = -1; rowIndex < 2; rowIndex++) {
     for (let colIndex = -1; colIndex < 2; colIndex++) {
       const checkedRowCoord = field.x + rowIndex;
       const checkedColCoord = field.y + colIndex;
-      const isInRange = (coordinate) =>
-        coordinate >= boardMin && coordinate < boardMax;
       if (isInRange(checkedRowCoord) && isInRange(checkedColCoord)) {
         board[checkedRowCoord][checkedColCoord].isMine && bombCount++;
       }

@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { ClickHandler } from "./Minesweeper";
+import { ClickHandler } from "./hooks/useClickHandler";
 
 function Field({ field, isGameOver }) {
   const [hidden, setHidden] = useState(field.hidden);

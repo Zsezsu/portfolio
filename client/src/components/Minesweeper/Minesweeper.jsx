@@ -1,11 +1,10 @@
-import { useEffect, useState, createContext } from "react";
+import { useEffect, useState } from "react";
+import { ClickHandler } from './hooks/useClickHandler';
 import "./minesweeper.css";
 import BoardRow from "./BoardRow";
 import { generateBoard } from "./utils/generateBoard";
 
 const SIZE = 10;
-
-export const ClickHandler = createContext(null);
 
 function Minesweeper() {
   const [gameBoard, setGameBoard] = useState(null);

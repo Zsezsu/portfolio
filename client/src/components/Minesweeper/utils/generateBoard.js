@@ -1,4 +1,5 @@
-import BOMB_IMG from "../assets/minesweeper_bomb.png";
+import BOMB_IMG_CLICKED from "../assets/minesweeper_bomb_clicked.png";
+import BOMB_IMG_DEFAULT from "../assets/minesweeper_bomb_default.png";
 import HIDDEN_FIELD from "../assets/minesweeper_unopened.png";
 import FLAG_FIELD from "../assets/minesweeper_flag.png";
 import EMPTY_FIELD from "../assets/minesweeper_0.png";
@@ -35,7 +36,8 @@ function placeBombs(board, numberOfBombs) {
     const placeForBomb = position >= 10 ? `${position}` : `0${position}`;
     const field = board[placeForBomb[0]][placeForBomb[1]];
     field.isMine = true;
-    field.img = BOMB_IMG;
+    field.img = BOMB_IMG_DEFAULT;
+    field.clickedBombImg = BOMB_IMG_CLICKED;
   }
 }
 

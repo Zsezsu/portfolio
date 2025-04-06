@@ -38,6 +38,7 @@ function placeBombs(board, numberOfBombs) {
     field.isMine = true;
     field.img = BOMB_IMG_DEFAULT;
     field.clickedBombImg = BOMB_IMG_CLICKED;
+    field.isEmpty = false;
   }
 }
 
@@ -57,6 +58,7 @@ function placeImgOnFields(board) {
 
 function assignFieldImage(field, bombCount) {
   field.img = FIELD_IMAGES[bombCount];
+  field.isEmpty = bombCount === 0 ? true : false;
 }
 
 function checkFieldAround(board, field) {
@@ -87,6 +89,7 @@ export function generateBoard(boardSize) {
         x: rowIndex,
         y: colIndex,
         isMine: false,
+        isEmpty: true,
         hidden: true,
         hiddenFieldImg: HIDDEN_FIELD,
         flagged: false,

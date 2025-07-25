@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { ClickHandler } from "./hooks/useClickHandler";
 
-function Field({ field, isGameOver }) {
-  const [hidden, setHidden] = useState(field.hidden);
+function Field({ field, hidden, isGameOver }) {
+  console.log("rerendering field:" + field.id)
   const [flagged, setFlagged] = useState(field.flagged);
   const [displayedImg, setDisplayedImg] = useState(field.hiddenFieldImg);
   const [wasClicked, setWasClicked] = useState(false);
@@ -10,11 +10,11 @@ function Field({ field, isGameOver }) {
   const onClick = useContext(ClickHandler);
 
   function handleClick(){
+    console.log(field)
     if (isGameOver || flagged || !hidden) return;
     const imgToShow = field.isMine ? field.clickedBombImg : field.img;
     setDisplayedImg(imgToShow);
-    onClick(field, field.isMine);
-    setHidden(false);
+    onClick(field.id, field.isMine);
     setWasClicked(true);
   }
 

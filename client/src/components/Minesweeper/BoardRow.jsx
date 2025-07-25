@@ -4,7 +4,16 @@ function BoardRow({ rows, isGameOver }) {
   return (
     <div className='board-row'>
       {rows.map((field) => (
-        <Field key={field.id} field={field} hidden={field.hidden} isGameOver={isGameOver} />
+        <Field
+          key={field.id}
+          isFlagged={field.flagged}
+          isHidden={field.hidden}
+          isMine={field.isMine}
+          isEmpty={field.isEmpty}
+          isGameOver={isGameOver}
+          imgIndex={field.bombCount}
+          id={field.id}
+        />
       ))}
     </div>
   );

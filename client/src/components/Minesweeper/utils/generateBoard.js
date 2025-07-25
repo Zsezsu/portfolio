@@ -36,8 +36,6 @@ function placeBombs(board, numberOfBombs) {
     const placeForBomb = position >= 10 ? `${position}` : `0${position}`;
     const field = board[placeForBomb[0]][placeForBomb[1]];
     field.isMine = true;
-    field.img = BOMB_IMG_DEFAULT;
-    field.clickedBombImg = BOMB_IMG_CLICKED;
     field.isEmpty = false;
   }
 }
@@ -46,7 +44,7 @@ function generateRandomNumber(size) {
   return Math.floor(Math.random() * size * size);
 }
 
-function placeImgOnFields(board) {
+function countBombsAroundFields(board) {
   for (const boardRow of board) {
     for (const field of boardRow) {
       if (!field.isMine) {
@@ -61,6 +59,7 @@ function assignFieldImage(field, bombCount) {
   field.isEmpty = bombCount === 0 ? true : false;
 }
 
+//TODO: assignFieldImg, and the inside if could be arguments as callbacks, in this way I could reuse this function for checking a field around
 function checkFieldAround(board, field) {
   const boardMin = 0;
   const boardMax = board.length;
@@ -76,7 +75,9 @@ function checkFieldAround(board, field) {
       }
     }
   }
-  assignFieldImage(field, bombCount);
+  //assignFieldImage(field, bombCount);
+  field.bombCount = bombCount;
+  field.isEmpty = bombCount === 0 ? true : false;
 }
 
 export function generateBoard(boardSize) {
@@ -91,15 +92,14 @@ export function generateBoard(boardSize) {
         isMine: false,
         isEmpty: true,
         hidden: true,
-        hiddenFieldImg: HIDDEN_FIELD,
         flagged: false,
-        flaggedFieldImg: FLAG_FIELD,
+        bombCount: 0,
       };
       rows.push(field);
     }
     board.push(rows);
   }
   placeBombs(board, boardSize);
-  placeImgOnFields(board);
+  countBombsAroundFields(board);
   return board;
 }

@@ -20,20 +20,54 @@ function Minesweeper() {
 
   function handleClick(id, isGameOver) {
     isGameOver && setIsGameOver(true);
-    const board = gameBoard.map((row) =>
-      row.map((field) => {
-        if (field.id === id) {
-          return {
-            ...field,
-            hidden: false,
-          };
-        }
-        return field;
-      })
-    );
-    setGameBoard(board);
+
+    const row = parseInt(id[0]);
+    const col = parseInt(id[1]);
+    const clickedField = gameBoard[row][col];
+
+    //TODO check why is this true when we click on a bomb
+    if (clickedField.isEmpty) {
+      const board = openEmptyFields(row, col);
+      setGameBoard(board);
+    } else {
+      const board = structuredClone(gameBoard);
+      board[row][col].hidden = false;
+      setGameBoard(board);
+    }
   }
 
+  function openEmptyFields(row, col) {
+    const board = structuredClone(gameBoard);
+    board[row][col].hidden = false;
+    openAround(board, row, col);
+    return board;
+  }
+
+  function openAround(board, x, y) {
+    const boardMin = 0;
+    const boardMax = board.length;
+
+    const isInRange = (coordinate) =>
+      coordinate >= boardMin && coordinate < boardMax;
+
+    for (let rowIndex = -1; rowIndex < 2; rowIndex++) {
+      for (let colIndex = -1; colIndex < 2; colIndex++) {
+        if (rowIndex === 0 && colIndex === 0) continue;
+        const checkedRowCoord = x + rowIndex;
+        const checkedColCoord = y + colIndex;
+        if (isInRange(checkedRowCoord) && isInRange(checkedColCoord)) {
+          const field = board[checkedRowCoord][checkedColCoord];
+          if (field.isEmpty && field.hidden) {
+            field.hidden = false;
+            openAround(board, checkedRowCoord, checkedColCoord);
+          } else if (!field.isMine && field.hidden) {
+            field.hidden = false;
+          }
+        }
+      }
+    }
+    return;
+  }
 
   return (
     <ClickHandler.Provider value={handleClick}>

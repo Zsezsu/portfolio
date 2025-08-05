@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ClickHandler } from "./hooks/useClickHandler";
+import { ClickHandlers } from "./hooks/useClickHandler";
 import "./minesweeper.css";
 import BoardRow from "./BoardRow";
 import { generateBoard } from "./utils/generateBoard";
@@ -18,15 +18,32 @@ function Minesweeper() {
     console.log(board);
   }, []);
 
-  function handleClick(id, isGameOver) {
-    isGameOver && setIsGameOver(true);
+  function displayMines() {
+    setGameBoard(
+      gameBoard.map((row) =>
+        row.map((field) => {
+          if (field.isMine)
+            return {
+              ...field,
+              hidden: false,
+            };
+          return {
+            ...field,
+          };
+        })
+      )
+    );
+  }
 
+  function handleClick(id, isGameOver) {
     const row = parseInt(id[0]);
     const col = parseInt(id[1]);
     const clickedField = gameBoard[row][col];
 
-    //TODO check why is this true when we click on a bomb
-    if (clickedField.isEmpty) {
+    if (isGameOver) {
+      setIsGameOver(true);
+      displayMines();
+    } else if (clickedField.isEmpty) {
       const board = openEmptyFields(row, col);
       setGameBoard(board);
     } else {
@@ -34,6 +51,15 @@ function Minesweeper() {
       board[row][col].hidden = false;
       setGameBoard(board);
     }
+  }
+
+  function handleRightClick(id, flagged) {
+    console.log(id, flagged);
+    const row = parseInt(id[0]);
+    const col = parseInt(id[1]);
+    const board = structuredClone(gameBoard);
+    board[row][col].flagged = !flagged;
+    setGameBoard(board);
   }
 
   function openEmptyFields(row, col) {
@@ -57,10 +83,10 @@ function Minesweeper() {
         const checkedColCoord = y + colIndex;
         if (isInRange(checkedRowCoord) && isInRange(checkedColCoord)) {
           const field = board[checkedRowCoord][checkedColCoord];
-          if (field.isEmpty && field.hidden) {
+          if (field.isEmpty && field.hidden && !field.flagged) {
             field.hidden = false;
             openAround(board, checkedRowCoord, checkedColCoord);
-          } else if (!field.isMine && field.hidden) {
+          } else if (!field.isMine && field.hidden && !field.flagged) {
             field.hidden = false;
           }
         }
@@ -70,7 +96,7 @@ function Minesweeper() {
   }
 
   return (
-    <ClickHandler.Provider value={handleClick}>
+    <ClickHandlers.Provider value={{onClick: handleClick, onRightClick: handleRightClick}}>
       <div className='container'>
         {gameBoard &&
           gameBoard.map((boardRow, index) => {
@@ -83,7 +109,7 @@ function Minesweeper() {
             );
           })}
       </div>
-    </ClickHandler.Provider>
+    </ClickHandlers.Provider>
   );
 }
 

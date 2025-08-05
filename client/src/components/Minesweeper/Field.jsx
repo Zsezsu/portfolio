@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { ClickHandler } from "./hooks/useClickHandler";
+import { ClickHandlers } from "./hooks/useClickHandler";
 import BOMB_IMG_CLICKED from "./assets/minesweeper_bomb_clicked.png";
 import BOMB_IMG_DEFAULT from "./assets/minesweeper_bomb_default.png";
 import HIDDEN_FIELD from "./assets/minesweeper_unopened.png";
@@ -26,18 +26,29 @@ const FIELD_IMAGES = [
   EIGHT_FIELD,
 ];
 
-function FieldDisplay({ isFlagged, isHidden, isMine, isEmpty, isGameOver, imgIndex, id }) {
-  const [displayedImg, setDisplayedImg] = useState(HIDDEN_FIELD);
-  const [fieldImg, setFieldImg] = useState(isMine ? BOMB_IMG_DEFAULT : FIELD_IMAGES[imgIndex]);
+function FieldDisplay({
+  flagged,
+  hidden,
+  isMine,
+  isEmpty,
+  isGameOver,
+  imgIndex,
+  id,
+}) {
+  const [displayedImg, setDisplayedImg] = useState(
+    flagged ? FLAG_FIELD : HIDDEN_FIELD
+  );
+  const [fieldImg, setFieldImg] = useState(
+    isMine ? BOMB_IMG_DEFAULT : FIELD_IMAGES[imgIndex]
+  );
 
-  const onClick = useContext(ClickHandler);
-  //const FIELD_IMG = isMine ? BOMB_IMG_DEFAULT : FIELD_IMAGES[imgIndex];
+  const { onClick, onRightClick } = useContext(ClickHandlers);
 
   function handleClick() {
-    if (isGameOver || isFlagged || !isHidden) return;
+    if (isGameOver || flagged || !hidden) return;
     console.log(id);
     const imgToShow = isMine ? BOMB_IMG_CLICKED : fieldImg;
-    setFieldImg(imgToShow)
+    setFieldImg(imgToShow);
     setDisplayedImg(fieldImg);
     onClick(id, isMine);
   }
@@ -45,19 +56,20 @@ function FieldDisplay({ isFlagged, isHidden, isMine, isEmpty, isGameOver, imgInd
   function handleRightClick(e) {
     e.preventDefault();
     if (isGameOver) return;
-    isHidden && setDisplayedImg(FLAG_FIELD);
-    //TODO: call onClick with isFlagged true to communicate the parent the state
-    // need to modify the onclick, or create a new handler
+    hidden && onRightClick(id, flagged);
+
   }
 
-    useEffect(() => {
-      isGameOver && !isFlagged && !isEmpty && setDisplayedImg(fieldImg);
-      
-    }, [isGameOver, isFlagged, isEmpty, fieldImg, isHidden]);
+  useEffect(() => {
+    isGameOver && !flagged && !isEmpty && !hidden && setDisplayedImg(fieldImg);
+  }, [isGameOver, flagged, isEmpty, fieldImg, hidden]);
 
-    useEffect(() => {
-      !isHidden && setDisplayedImg(fieldImg)
-    }, [isHidden, fieldImg])
+  useEffect(() => {
+    !hidden && setDisplayedImg(fieldImg);
+    flagged && setDisplayedImg(FLAG_FIELD);
+    // TODO: figure out logic for unflagging
+  }, [hidden, fieldImg, flagged]);
+
 
   return (
     <div

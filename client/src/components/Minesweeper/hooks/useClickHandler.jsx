@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const ClickHandler = createContext(null);
+export const ClickHandlers = createContext(null);

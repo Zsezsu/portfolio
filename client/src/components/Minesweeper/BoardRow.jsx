@@ -6,8 +6,8 @@ function BoardRow({ rows, isGameOver }) {
       {rows.map((field) => (
         <Field
           key={field.id}
-          isFlagged={field.flagged}
-          isHidden={field.hidden}
+          flagged={field.flagged}
+          hidden={field.hidden}
           isMine={field.isMine}
           isEmpty={field.isEmpty}
           isGameOver={isGameOver}

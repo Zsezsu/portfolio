@@ -1,25 +1,119 @@
+import { Container, Box, Typography, Grid, Avatar } from "@mui/material";
+// import Grid from '@mui/material/Grid';
 import profilePicture from "./assets/prof_pic.jpg";
-import "./AboutMe.css";
+
+const traits = [
+  { label: "Honesty", color: "#70c1b3", top: "30%", left: "15%", size: 145 },
+  { label: "Accuracy", color: "#ee9a8bff", top: "30%", left: "45%", size: 145 },
+  {
+    label: "Growth Mindset",
+    color: "#72e7f6ff",
+    top: "55%",
+    left: "30%",
+    size: 160,
+  },
+  {
+    label: "Self-awareness",
+    color: "#38818bff",
+    top: "40%",
+    left: "65%",
+    size: 150,
+  },
+  {
+    label: "Environmental awareness",
+    color: "#4aef70ff",
+    top: "70%",
+    left: "50%",
+    size: 147,
+  },
+  {
+    label: "Progression",
+    color: "#738df9ff",
+    top: "20%",
+    left: "80%",
+    size: 145,
+  },
+  {
+    label: "Perseverance",
+    color: "#3498db",
+    top: "75%",
+    left: "10%",
+    size: 140,
+  },
+  {
+    label: "Ownership",
+    color: "#f9ce73ff",
+    top: "75%",
+    left: "75%",
+    size: 145,
+  },
+];
 
 function AboutMe() {
   return (
-    <div className='about-me'>
-      <figure>
-        <img src={profilePicture} alt='profile' className='profile-picture' />
-      </figure>
-      <article>
-        <h2>About Me</h2>
-        <section className='bubble-container'>
-          <div className='bubble blue bubble-1'>Honesty</div>
-          <div className='bubble green  bubble-2'>Accuracy</div>
-          <div className='bubble yellow bubble-3'>Growth Mindset</div>
-          <div className='bubble pink bubble-4'>Self-awareness</div>
-          <div className='bubble purple bubble-5'>Environmental awareness</div>
-          <div className='bubble orange bubble-6'>Progression</div>
-          <div className='bubble ocean bubble-7'>Perseverance</div>
-        </section>
-      </article>
-    </div>
+    <Container maxWidth='md' sx={{ mt: 6 }}>
+      <Grid container spacing={4} alignItems='center'>
+        <Grid size={{ xs: 12, md: 4 }}>
+          <Avatar
+            src={profilePicture}
+            alt='Profile'
+            sx={{ width: 180, height: 180, margin: "0 auto" }}
+          />
+        </Grid>
+
+        <Grid size={{ xs: 12, md: 8 }}>
+          <Typography variant='h4' gutterBottom>
+            About Me
+          </Typography>
+          <Typography variant='body1'>
+            I'm a passionate and kind developer who believes in honesty, growth,
+            and perseverance. Here are some of the traits I value:
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <Box
+        sx={{
+          mt: 8,
+          position: "relative",
+          width: "100%",
+          height: 400, // adjust as needed
+        }}>
+        {traits.map((trait, index) => (
+          <Box
+            key={index}
+            sx={{
+              position: "absolute",
+              top: trait.top,
+              left: trait.left,
+              width: trait.size,
+              height: trait.size,
+              borderRadius: "50%",
+              backgroundColor: trait.color,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "white",
+              fontWeight: "bold",
+              textAlign: "center",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "scale(1.1) rotate(3deg)",
+                boxShadow: 6,
+              },
+              animation: "grow 4s ease-in-out infinite",
+              zIndex: 1,
+              padding: 1,
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+              fontSize: "0.8rem",
+              lineHeight: 1.1,
+            }}>
+            {trait.label}
+          </Box>
+        ))}
+      </Box>
+    </Container>
   );
 }
 

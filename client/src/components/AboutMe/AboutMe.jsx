@@ -2,14 +2,30 @@ import { Container, Box, Typography, Grid, Avatar } from "@mui/material";
 import profilePicture from "./assets/prof_pic_2.jpg";
 
 const traits = [
-  { label: "Honesty", color: "#70c1b3", top: "30%", left: "15%", size: 145 },
-  { label: "Accuracy", color: "#ee9a8bff", top: "30%", left: "45%", size: 145 },
+  {
+    label: "Honesty",
+    color: "#70c1b3",
+    top: "30%",
+    left: "15%",
+    size: 145,
+    description: "Being transparent builds trust.",
+  },
+  {
+    label: "Accuracy",
+    color: "#ee9a8bff",
+    top: "30%",
+    left: "45%",
+    size: 145,
+    description: "It is important for me to perform my tasks accurately.",
+  },
   {
     label: "Growth Mindset",
     color: "#72e7f6ff",
     top: "55%",
     left: "30%",
     size: 160,
+    description:
+      "Learn from mistakes, set realistic goals, and focus on the process not just on the result.",
   },
   {
     label: "Self-awareness",
@@ -17,6 +33,7 @@ const traits = [
     top: "40%",
     left: "65%",
     size: 150,
+    description: "I can treat others well when I am at peace with myself.",
   },
   {
     label: "Environmental awareness",
@@ -24,6 +41,8 @@ const traits = [
     top: "70%",
     left: "50%",
     size: 147,
+    description:
+      "I believe it is truly important to live in harmony with our environment and to minimize our impact on nature.",
   },
   {
     label: "Progression",
@@ -31,6 +50,8 @@ const traits = [
     top: "20%",
     left: "80%",
     size: 145,
+    description:
+      "Effort improves, and the work you put in will always pay off.",
   },
   {
     label: "Perseverance",
@@ -38,13 +59,16 @@ const traits = [
     top: "75%",
     left: "10%",
     size: 140,
+    description:
+      "Everything I have achieved in my life so far, I ascribe to my perseverance.",
   },
   {
-    label: "Ownership",
+    label: "Feedback",
     color: "#f9ce73ff",
     top: "75%",
     left: "75%",
     size: 145,
+    description: "Giving and receiving feedback is what helps us improve.",
   },
 ];
 
@@ -56,7 +80,7 @@ function AboutMe() {
           <Avatar
             src={profilePicture}
             alt='Profile'
-            sx={{ width: 180, height: 180, margin: "0 auto" }}
+            sx={{ width: 245, height: 245, margin: "0 auto" }}
           />
         </Grid>
 
@@ -77,20 +101,19 @@ function AboutMe() {
         </Grid>
       </Grid>
 
-          <Typography
-            variant='h5'
-            gutterBottom
-            align='center'
-            sx={{ mt:8, color: "secondary.main", fontWeight: "bold" }}>
-            My core values:
-          </Typography>
+      <Typography
+        variant='h5'
+        gutterBottom
+        align='center'
+        sx={{ mt: 8, color: "secondary.main", fontWeight: "bold" }}>
+        My core values
+      </Typography>
       <Box
         sx={{
           position: "relative",
           width: "100%",
           height: 350, // adjust as needed
         }}>
-          
         {traits.map((trait, index) => (
           <Box
             key={index}
@@ -100,28 +123,70 @@ function AboutMe() {
               left: trait.left,
               width: trait.size,
               height: trait.size,
-              borderRadius: "50%",
-              backgroundColor: trait.color,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "white",
-              fontWeight: "bold",
-              textAlign: "center",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              perspective: 1000, // Needed for 3D effect
+              transition: "transform 0.3s ease",
               "&:hover": {
-                transform: "scale(1.1) rotate(3deg)",
-                boxShadow: 6,
+                transform: "scale(1.55)", // ✅ Grow the whole thing
+                zIndex: 10, // Optional: lift above others during hover
               },
-              animation: "grow 4s ease-in-out infinite",
-              zIndex: 1,
-              padding: 1,
-              textOverflow: "ellipsis",
-              overflow: "hidden",
-              fontSize: "0.8rem",
-              lineHeight: 1.1,
             }}>
-            {trait.label}
+            <Box
+              sx={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                transformStyle: "preserve-3d",
+                transition: "transform 0.8s ease",
+                "&:hover": {
+                  transform: "rotateY(180deg) scale(1.1)",
+                },
+              }}>
+              {/* Front */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "50%",
+                  backgroundColor: trait.color,
+                  color: "white",
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backfaceVisibility: "hidden",
+                  boxShadow: 5,
+                  animation: "grow 4s ease-in-out infinite",
+                  fontSize: "0.85rem",
+                  textAlign: "center",
+                  padding: 1,
+                }}>
+                {trait.label}
+              </Box>
+
+              {/* Back */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "50%",
+                  backgroundColor: trait.color,
+                  color: "white",
+                  fontSize: "0.75rem",
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  transform: "rotateY(180deg)",
+                  backfaceVisibility: "hidden",
+                  padding: 2,
+                  boxShadow: 5,
+                }}>
+                {trait.description}
+              </Box>
+            </Box>
           </Box>
         ))}
       </Box>

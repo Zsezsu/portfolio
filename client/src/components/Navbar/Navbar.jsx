@@ -8,9 +8,9 @@ import {
 import { NavLink } from "react-router-dom";
 
 const navItems = [
-  { label: "Home", path: "/" },
+  { label: "About me", path: "/" },
   { label: "My Games", path: "/games" },
-  { label: "Projects", path: "/projects" },
+  { label: "My projects", path: "/projects" },
   // Add more items as needed
 ];
 
@@ -29,8 +29,8 @@ function Navbar() {
         <Typography
           variant='h6'
           component='div'
-          sx={{ fontWeight: "bold", color: "primary.main" }}>
-          My Portfolio
+          sx={{ fontWeight: "bold", color: "text.primary" }}>
+          Zsu Juhász
         </Typography>
 
         {/* TODO: align center the buttons if I want */}
@@ -52,8 +52,9 @@ function Navbar() {
                 position: "relative",
                 "&.active": {
                   borderBottom: "2px solid",
-                  borderColor: "primary.main",
-                  color: "primary.main",
+                  borderColor: "secondary.main",
+                  color: "secondary.main",
+                  fontWeight: "bold",
                 },
                 "&:hover": {
                   backgroundColor: "transparent",

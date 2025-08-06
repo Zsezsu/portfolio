@@ -3,16 +3,16 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#70c1b3", // ocean teal
+      main: "#70c1b3",
     },
     secondary: {
-      main: "#ffe066", // pastel yellow
+      main: "#1f7defff",
     },
     background: {
       default: "#f4f9f9",
     },
     text: {
-      primary: "#1a1a1a",
+      primary: "#5fabe9ff",
     },
   },
   typography: {

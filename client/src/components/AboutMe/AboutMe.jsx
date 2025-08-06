@@ -1,6 +1,5 @@
 import { Container, Box, Typography, Grid, Avatar } from "@mui/material";
-// import Grid from '@mui/material/Grid';
-import profilePicture from "./assets/prof_pic.jpg";
+import profilePicture from "./assets/prof_pic_2.jpg";
 
 const traits = [
   { label: "Honesty", color: "#70c1b3", top: "30%", left: "15%", size: 145 },
@@ -62,23 +61,36 @@ function AboutMe() {
         </Grid>
 
         <Grid size={{ xs: 12, md: 8 }}>
-          <Typography variant='h4' gutterBottom>
-            About Me
+          <Typography
+            variant='h4'
+            gutterBottom
+            sx={{ color: "secondary.main", fontWeight: "bold" }}>
+            Software Developer Mentor
           </Typography>
           <Typography variant='body1'>
-            I'm a passionate and kind developer who believes in honesty, growth,
-            and perseverance. Here are some of the traits I value:
+            I believe in a growth mindset, that skills can be developed through
+            continuous learning and effort. I try to live my life by looking at
+            challenges as opportunities and mistakes as valuable learning
+            experiences. This is what I teach my students, and it provides a
+            safe environment in which we can grow and work with ease.
           </Typography>
         </Grid>
       </Grid>
 
+          <Typography
+            variant='h5'
+            gutterBottom
+            align='center'
+            sx={{ mt:8, color: "secondary.main", fontWeight: "bold" }}>
+            My core values:
+          </Typography>
       <Box
         sx={{
-          mt: 8,
           position: "relative",
           width: "100%",
-          height: 400, // adjust as needed
+          height: 350, // adjust as needed
         }}>
+          
         {traits.map((trait, index) => (
           <Box
             key={index}

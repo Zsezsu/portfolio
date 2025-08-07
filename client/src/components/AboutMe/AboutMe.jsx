@@ -1,5 +1,6 @@
-import { Container, Box, Typography, Grid, Avatar } from "@mui/material";
+import { Container, Typography, Grid, Avatar, Box } from "@mui/material";
 import profilePicture from "./assets/prof_pic_2.jpg";
+import styles from "./AboutMe.module.css";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 
@@ -50,7 +51,7 @@ const traits = [
     label: "Progression",
     color: "#738df9ff",
     top: "20%",
-    left: "80%",
+    left: "82%",
     size: 145,
     description:
       "Effort improves us and the work you invest in will always pay off.",
@@ -68,8 +69,8 @@ const traits = [
     label: "Feedback",
     color: "#f9ce73ff",
     top: "75%",
-    left: "75%",
-    size: 145,
+    left: "78%",
+    size: 140,
     description: "Giving and receiving feedback is what helps us to improve.",
   },
 ];
@@ -94,11 +95,11 @@ function AboutMe() {
             Software Developer Mentor
           </Typography>
           <Typography variant='body1'>
-            I believe in growth mindset, which means skills can be developed through
-            continuous learning and effort. I try to live my life by looking at
-            challenges as opportunities and mistakes as valuable learning
-            experiences. This is what I teach my students and it provides a
-            safe environment in which we can grow and work with ease.
+            I believe in growth mindset, which means skills can be developed
+            through continuous learning and effort. I try to live my life by
+            looking at challenges as opportunities and mistakes as valuable
+            learning experiences. This is what I teach my students and it
+            provides a safe environment in which we can grow and work with ease.
           </Typography>
         </Grid>
       </Grid>
@@ -110,90 +111,36 @@ function AboutMe() {
         sx={{ mt: 8, color: "secondary.main", fontWeight: "bold" }}>
         My core values
       </Typography>
-      <Box
-        sx={{
-          position: "relative",
-          width: "100%",
-          height: 350, // adjust as needed
-        }}>
+
+      <Box className={styles.bubblesContainer}>
         {traits.map((trait, index) => (
           <Box
             key={index}
-            sx={{
-              position: "absolute",
+            className={styles.bubble}
+            style={{
               top: trait.top,
               left: trait.left,
               width: trait.size,
               height: trait.size,
-              perspective: 1000, // Needed for 3D effect
-              transition: "transform 0.3s ease",
-              "&:hover": {
-                transform: "scale(1.55)", // ✅ Grow the whole thing
-                zIndex: 10, // Optional: lift above others during hover
-              },
             }}>
-            <Box
-              sx={{
-                position: "relative",
-                width: "100%",
-                height: "100%",
-                transformStyle: "preserve-3d",
-                transition: "transform 0.8s ease",
-                "&:hover": {
-                  transform: "rotateY(180deg)",
-                },
-              }}>
-              {/* Front */}
+            <Box className={styles.bubbleInner}>
               <Box
-                sx={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "50%",
-                  backgroundColor: trait.color,
-                  color: "white",
-                  fontWeight: "bold",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backfaceVisibility: "hidden",
-                  boxShadow: 5,
-                  animation: "grow 4s ease-in-out infinite",
-                  fontSize: "0.85rem",
-                  textAlign: "center",
-                  padding: 1,
-                }}>
+                className={styles.bubbleFront}
+                style={{ backgroundColor: trait.color }}>
                 {trait.label}
               </Box>
-
-              {/* Back */}
               <Box
-                sx={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "50%",
-                  backgroundColor: trait.color,
-                  color: "white",
-                  fontSize: "0.75rem",
-                  fontWeight: "bold",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textAlign: "center",
-                  transform: "rotateY(180deg)",
-                  backfaceVisibility: "hidden",
-                  padding: 2,
-                  boxShadow: 5,
-                }}>
+                className={styles.bubbleBack}
+                style={{ backgroundColor: trait.color }}>
                 {trait.description}
               </Box>
             </Box>
           </Box>
         ))}
       </Box>
-      <WorkExperience/>
-      <Education/>
+
+      <WorkExperience />
+      <Education />
     </Container>
   );
 }

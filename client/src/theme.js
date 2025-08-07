@@ -1,18 +1,28 @@
 import { createTheme } from "@mui/material/styles";
 
+const primary = "#70c1b3";
+const secondary = "#1f7defff";
+const background = "#f4f9f9";
+const textPrimary = "#5fabe9ff";
+
+document.documentElement.style.setProperty("--color-primary", primary);
+document.documentElement.style.setProperty("--color-secondary", secondary);
+document.documentElement.style.setProperty("--color-bg", background);
+document.documentElement.style.setProperty("--color-text-primary", textPrimary);
+
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#70c1b3",
+      main: primary,
     },
     secondary: {
-      main: "#1f7defff",
+      main: secondary,
     },
     background: {
-      default: "#f4f9f9",
+      default: background,
     },
     text: {
-      primary: "#5fabe9ff",
+      primary: textPrimary,
     },
   },
   typography: {

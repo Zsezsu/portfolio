@@ -1,0 +1,58 @@
+.bubblesContainer {
+  position: relative;
+  width: 100%;
+  height: 350px;
+}
+
+.bubble {
+  position: absolute;
+  perspective: 1000;
+  transition: transform 0.3s ease;
+}
+
+.bubble:hover {
+  transform: scale(1.55);
+  z-index: 10;
+}
+
+.bubbleInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.bubbleInner:hover {
+  transform: rotateY(180deg);
+}
+
+.bubbleFront,
+.bubbleBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: grow 4s ease-in-out infinite;
+  backface-visibility: hidden;
+  padding: 1rem;
+  font-size: 0.85rem;
+}
+
+.bubbleBack {
+  transform: rotateY(180deg);
+  font-size: 0.75rem;
+}
+
+.valuesTitle {
+  margin-top: 4rem;
+  color: var(--color-secondary);
+  font-weight: bold;
+}

@@ -1,45 +1,8 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { motion } from "framer-motion";
+import { profileData } from "./utils/profileData";
 
-const experiences = [
-  {
-    company: "Codecool",
-    location: "Budapest, Hungary",
-    dates: "Jan 2023 – Present",
-    roles: [
-      {
-        title: "Mentor (Associate level)",
-        description: [
-          "Mentor students in full-stack development using the MERN stack.",
-          "Lead workshops on React, Express, MongoDB.",
-          "Facilitate soft skill workshops: Feedback, Growth Mindset.",
-        ],
-      },
-      {
-        title: "Mentor (Junior level)",
-        description: [
-          'Supported students through a "learning by teaching" approach.',
-          "Facilitated workshops on JavaScript, HTML, CSS, DOM, Web API.",
-        ],
-      },
-    ],
-  },
-  {
-    company: "Netrisk Group",
-    location: "Budapest, Hungary",
-    dates: "Feb 2017 – Aug 2021",
-    roles: [
-      {
-        title: "Team Leader, Telecommunications Department",
-        description: [
-          "Oversaw daily operations and coordinated team activities.",
-          "Improved processes, monitored performance, supported staff.",
-          "Worked with management to meet targets and maintain quality.",
-        ],
-      },
-    ],
-  },
-];
+const EXPERIENCES = profileData.experiences;
 
 function WorkExperience() {
 
@@ -56,7 +19,7 @@ function WorkExperience() {
         Work Experiences
       </Typography>
 
-      {experiences.map((exp, idx) => (
+      {EXPERIENCES.map((exp, idx) => (
         <motion.div
           key={idx}
           initial={{ opacity: 0, x: -40 }}
@@ -91,7 +54,7 @@ function WorkExperience() {
               </Box>
             ))}
 
-            {idx !== experiences.length - 1 && <Divider sx={{ my: 4 }} />}
+            {idx !== EXPERIENCES.length - 1 && <Divider sx={{ my: 4 }} />}
           </Box>
         </motion.div>
       ))}

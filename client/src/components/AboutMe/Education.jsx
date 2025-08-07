@@ -1,44 +1,8 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { motion } from "framer-motion";
+import { profileData } from "./utils/profileData";
 
-const educations = [
-  {
-    institution: "Codecool",
-    location: "Budapest",
-    dates: "Aug 2021 – Oct 2022",
-    degrees: [
-      {
-        title: "Fullstack Developer",
-        description: [
-          "Completed an intensive full-stack developer program using the MERN stack.",
-          "Gained skills in JavaScript, React, Node.js, Python, SQL, Git, teamwork, and communication.",
-        ],
-      },
-    ],
-  },
-  {
-    institution: "Atalanta Business School",
-    location: "",
-    dates: "Sep 2006 – Jun 2008",
-    degrees: [
-      {
-        title: "Diploma of Education in Tourism and Travel Services Management",
-        description: [],
-      },
-    ],
-  },
-  {
-    institution: "Montessori Educational Center",
-    location: "",
-    dates: "Sep 2001 – Jun 2005",
-    degrees: [
-      {
-        title: "High School Diploma",
-        description: [],
-      },
-    ],
-  },
-];
+const educations = profileData.educations;
 
 function Education() {
   return (

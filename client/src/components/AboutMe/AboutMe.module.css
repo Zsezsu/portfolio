@@ -50,9 +50,3 @@
   transform: rotateY(180deg);
   font-size: 0.75rem;
 }
-
-.valuesTitle {
-  margin-top: 4rem;
-  color: var(--color-secondary);
-  font-weight: bold;
-}

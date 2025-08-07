@@ -28,6 +28,21 @@ const theme = createTheme({
   typography: {
     fontFamily: "Roboto, sans-serif",
   },
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: textPrimary,
+          fontSize: "0.85rem",
+          textDecoration: "none",
+          "&:hover": {
+            textDecoration: "underline",
+            color: primary,
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;

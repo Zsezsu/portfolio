@@ -27,6 +27,10 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "Roboto, sans-serif",
+    h4: {
+      marginBottom: "2rem",
+      fontWeight: "bold"
+    },
   },
   components: {
     MuiLink: {

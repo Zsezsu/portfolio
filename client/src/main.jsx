@@ -5,10 +5,11 @@ import ReactDOM from "react-dom/client";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme";
 import { BrowserRouter, Routes, Route } from "react-router";
-import MyGames from "./pages/MyGames.jsx";
+import MyGames from "./pages/MyGames/MyGames.jsx";
 import Minesweeper from "./components/Minesweeper/Minesweeper.jsx";
 import Layout from "./components/Layout/Layout.jsx";
 import GameInfo from "./pages/GameInfo.jsx";
+import MyProjects from "./pages/MyProjects/MyProjects.jsx";
 
 const root = document.getElementById("root");
 
@@ -23,6 +24,7 @@ ReactDOM.createRoot(root).render(
             <Route path='/games' element={<MyGames />} />
             <Route path='/games/game-info/:gameName' element={<GameInfo />} />
             <Route path='/games/minesweeper' element={<Minesweeper />} />
+            <Route path='/projects' element={<MyProjects />} />
           </Route>
         </Routes>
       </BrowserRouter>

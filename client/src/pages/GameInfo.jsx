@@ -10,8 +10,6 @@ import {
 } from "@mui/material";
 import { gameDetails } from "./utils/gameData.js";
 
-
-
 function GameInfo() {
   const { gameName } = useParams();
   const navigate = useNavigate();
@@ -29,6 +27,21 @@ function GameInfo() {
 
   return (
     <Container maxWidth='md' sx={{ mt: 6, mb: 6, textAlign: "center" }}>
+      <Button
+        variant='text'
+        color='primary'
+        onClick={() => navigate("/games")}
+        sx={{
+          mb: 2,
+          textTransform: "none",
+          fontWeight: "medium",
+          "&:hover": {
+            textDecoration: "underline",
+          },
+        }}>
+        ← Back to Games
+      </Button>
+
       <Typography variant='h3' color='primary' gutterBottom>
         {game.title}
       </Typography>
@@ -61,8 +74,7 @@ function GameInfo() {
               target='_blank'
               rel='noopener noreferrer'
               underline='hover'
-              color='primary'
-            >
+              color='primary'>
               • {res.label}
             </Link>
           ))}
@@ -73,8 +85,7 @@ function GameInfo() {
         variant='contained'
         color='primary'
         onClick={() => navigate(game.playLink)}
-        sx={{ mt: 2 }}
-      >
+        sx={{ mt: 2 }}>
         Play {game.title}
       </Button>
     </Container>

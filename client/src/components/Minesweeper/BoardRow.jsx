@@ -9,7 +9,6 @@ function BoardRow({ rows, isGameOver }) {
           flagged={field.flagged}
           hidden={field.hidden}
           isMine={field.isMine}
-          isEmpty={field.isEmpty}
           isGameOver={isGameOver}
           imgIndex={field.bombCount}
           id={field.id}

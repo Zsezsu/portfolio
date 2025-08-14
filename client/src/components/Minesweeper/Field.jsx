@@ -13,6 +13,7 @@ import FIVE_FIELD from "./assets/minesweeper_5.png";
 import SIX_FIELD from "./assets/minesweeper_6.png";
 import SEVEN_FIELD from "./assets/minesweeper_7.png";
 import EIGHT_FIELD from "./assets/minesweeper_8.png";
+import MISSED_FLAGGED from "./assets/minesweeper_missed_flagged.png";
 
 const FIELD_IMAGES = [
   EMPTY_FIELD,
@@ -30,7 +31,6 @@ function FieldDisplay({
   flagged,
   hidden,
   isMine,
-  isEmpty,
   isGameOver,
   imgIndex,
   id,
@@ -44,7 +44,7 @@ function FieldDisplay({
       : BOMB_IMG_DEFAULT
     : FIELD_IMAGES[imgIndex];
 
-  const imgSrc = hidden ? (flagged ? FLAG_FIELD : HIDDEN_FIELD) : contentImg;
+  const imgSrc = hidden ? (HIDDEN_FIELD) : contentImg;
 
   function handleClick() {
     if (isGameOver || flagged || !hidden) return;
@@ -64,7 +64,7 @@ function FieldDisplay({
       id={id}
       onClick={handleClick}
       onContextMenu={handleRightClick}>
-      <img src={imgSrc} />
+      <img src={flagged ? (isGameOver && !isMine ? MISSED_FLAGGED : FLAG_FIELD) : imgSrc} />
     </div>
   );
 }

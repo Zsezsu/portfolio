@@ -90,7 +90,6 @@ export function generateBoard(boardSize) {
         x: rowIndex,
         y: colIndex,
         isMine: false,
-        isEmpty: true,
         hidden: true,
         flagged: false,
         bombCount: 0,

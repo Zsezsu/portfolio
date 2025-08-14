@@ -44,8 +44,6 @@ function Minesweeper() {
     setGameState("ready");
     setGameStarted(false);
     setGameOver(false);
-    setFlagsPlaced(0);
-    // TODO how to reset minesLeft?
   };
 
   function displayMines(row, col) {
@@ -86,11 +84,15 @@ function Minesweeper() {
   }
 
   function handleRightClick(id, flagged) {
+    if (!gameStarted) handleFirstReveal();
     console.log(id, flagged);
     const row = parseInt(id[0]);
     const col = parseInt(id[1]);
     const board = structuredClone(gameBoard);
     board[row][col].flagged = !flagged;
+    const flagCount = !flagged ? 1 : -1;
+    setFlagsPlaced(flagsPlaced + flagCount);
+    console.log(minesLeft);
     setGameBoard(board);
   }
 

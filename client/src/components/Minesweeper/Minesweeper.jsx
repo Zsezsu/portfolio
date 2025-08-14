@@ -31,7 +31,6 @@ function Minesweeper() {
     if (gameState === "ready") {
       setGameState("running");
       setGameStarted(true);
-      
     }
   };
 
@@ -39,31 +38,31 @@ function Minesweeper() {
   const handleLose = () => setGameState("lost");
 
   const restart = () => {
-    // regenerate board, reset flags, etc.
-    const board = generateBoard(SIZE);
-    setGameBoard(board);
-    // TODO reset flags?
+    setGameBoard(generateBoard(SIZE));
     resetTimer();
     setFlagsPlaced(0);
     setGameState("ready");
     setGameStarted(false);
+    setGameOver(false);
+    setFlagsPlaced(0);
+    // TODO how to reset minesLeft?
   };
 
-  function displayMines() {
-    setGameBoard(
-      gameBoard.map((row) =>
-        row.map((field) => {
-          if (field.isMine)
-            return {
+  function displayMines(row, col) {
+    const displayBoard = gameBoard.map((row) =>
+      row.map((field) =>
+        field.isMine
+          ? {
               ...field,
               hidden: false,
-            };
-          return {
-            ...field,
-          };
-        })
+            }
+          : {
+              ...field,
+            }
       )
     );
+    displayBoard[row][col].exploded = true;
+    setGameBoard(displayBoard);
   }
 
   function handleClick(id, isGameOver) {
@@ -74,7 +73,7 @@ function Minesweeper() {
 
     if (isGameOver) {
       setGameOver(true);
-      displayMines();
+      displayMines(row, col);
       handleLose();
     } else if (clickedField.isEmpty) {
       const board = openEmptyFields(row, col);

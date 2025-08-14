@@ -34,22 +34,21 @@ function FieldDisplay({
   isGameOver,
   imgIndex,
   id,
+  exploded,
 }) {
-  const [displayedImg, setDisplayedImg] = useState(
-    flagged ? FLAG_FIELD : HIDDEN_FIELD
-  );
-  const [fieldImg, setFieldImg] = useState(
-    isMine ? BOMB_IMG_DEFAULT : FIELD_IMAGES[imgIndex]
-  );
-
   const { onClick, onRightClick } = useContext(ClickHandlers);
+
+  const contentImg = isMine
+    ? exploded
+      ? BOMB_IMG_CLICKED
+      : BOMB_IMG_DEFAULT
+    : FIELD_IMAGES[imgIndex];
+
+  const imgSrc = hidden ? (flagged ? FLAG_FIELD : HIDDEN_FIELD) : contentImg;
 
   function handleClick() {
     if (isGameOver || flagged || !hidden) return;
     console.log(id);
-    const imgToShow = isMine ? BOMB_IMG_CLICKED : fieldImg;
-    setFieldImg(imgToShow);
-    setDisplayedImg(fieldImg);
     onClick(id, isMine);
   }
 
@@ -57,19 +56,7 @@ function FieldDisplay({
     e.preventDefault();
     if (isGameOver) return;
     hidden && onRightClick(id, flagged);
-
   }
-
-  useEffect(() => {
-    isGameOver && !flagged && !isEmpty && !hidden && setDisplayedImg(fieldImg);
-  }, [isGameOver, flagged, isEmpty, fieldImg, hidden]);
-
-  useEffect(() => {
-    !hidden && setDisplayedImg(fieldImg);
-    flagged && setDisplayedImg(FLAG_FIELD);
-    // TODO: figure out logic for unflagging
-  }, [hidden, fieldImg, flagged]);
-
 
   return (
     <div
@@ -77,7 +64,7 @@ function FieldDisplay({
       id={id}
       onClick={handleClick}
       onContextMenu={handleRightClick}>
-      <img src={displayedImg} />
+      <img src={imgSrc} />
     </div>
   );
 }

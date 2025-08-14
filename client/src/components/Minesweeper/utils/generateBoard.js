@@ -94,6 +94,7 @@ export function generateBoard(boardSize) {
         hidden: true,
         flagged: false,
         bombCount: 0,
+        exploded: false,
       };
       rows.push(field);
     }

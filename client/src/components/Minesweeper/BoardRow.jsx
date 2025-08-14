@@ -13,6 +13,7 @@ function BoardRow({ rows, isGameOver }) {
           isGameOver={isGameOver}
           imgIndex={field.bombCount}
           id={field.id}
+          exploded={field.exploded}
         />
       ))}
     </div>

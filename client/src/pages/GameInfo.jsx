@@ -84,9 +84,9 @@ function GameInfo() {
       <Button
         variant='contained'
         color='primary'
-        onClick={() => navigate(game.playLink)}
+        onClick={() => game.title === "Chess" ? navigate("/projects") : navigate(game.playLink)}
         sx={{ mt: 2 }}>
-        Play {game.title}
+          {game.title === "Chess" ? `Check my projects repo` : `Play ${game.title}` }
       </Button>
     </Container>
   );

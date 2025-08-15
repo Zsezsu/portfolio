@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ClickHandlers } from "./hooks/useClickHandler";
 import BOMB_IMG_CLICKED from "./assets/minesweeper_bomb_clicked.png";
 import BOMB_IMG_DEFAULT from "./assets/minesweeper_bomb_default.png";
@@ -48,7 +48,6 @@ function FieldDisplay({
 
   function handleClick() {
     if (isGameOver || flagged || !hidden) return;
-    console.log(id);
     onClick(id, isMine);
   }
 

@@ -102,8 +102,8 @@ function Minesweeper() {
       const clickedField = gameBoard[row][col];
       const actualBoard = structuredClone(gameBoard);
       actualBoard[row][col].hidden = false;
-      checkWin(actualBoard) && handleWin();
       clickedField.isEmpty && openAroundEmptyFields(actualBoard, row, col);
+      checkWin(actualBoard) && handleWin();
       setGameBoard(actualBoard);
     }
   }

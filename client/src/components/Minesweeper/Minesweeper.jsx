@@ -16,7 +16,13 @@ const gameStates = {
   running: "running",
   won: "won",
   lost: "lost",
-}
+};
+const gameStateDescription = {
+  ready: "Minesweeper game is ready to start, just click on any field below",
+  running: "The game is running, Good luck!",
+  won: "Congratulations, you won!",
+  lost: "Unfortunately you lost :( Just click on the emoji icon below to restart",
+};
 
 function Minesweeper() {
   const [gameBoard, setGameBoard] = useState(null);
@@ -27,13 +33,7 @@ function Minesweeper() {
   const minesLeft = Math.max(TOTAL_MINES - flagsPlaced, 0);
   const { elapsed, reset: resetTimer } = useStopwatch(gameState === "running");
 
-  console.log(elapsed);
-
-  useEffect(() => {
-    const board = generateBoard(SIZE);
-    setGameBoard(board);
-    console.log(board);
-  }, []);
+  useEffect(() => setGameBoard(generateBoard(SIZE)), []);
 
   const handleFirstReveal = () => {
     if (gameState === "ready") {
@@ -45,12 +45,12 @@ function Minesweeper() {
   const handleWin = () => {
     setGameState(gameStates.won);
     setGameOver(true);
-  }
+  };
 
   const handleLose = () => {
     setGameState(gameStates.lost);
     setGameOver(true);
-  }
+  };
 
   const restart = () => {
     setGameBoard(generateBoard(SIZE));
@@ -108,7 +108,6 @@ function Minesweeper() {
         if (checkWin(actualBoard)) {
           console.log("player won!!");
           handleWin();
-          //TODO just for now, do I need a won state?
         }
       }
 
@@ -126,7 +125,7 @@ function Minesweeper() {
     setFlagsPlaced(flagsPlaced + flagCount);
     setGameBoard(board);
   }
-  
+
   function openAroundEmptyFields(board, x, y) {
     const boardMin = 0;
     const boardMax = board.length;
@@ -157,6 +156,7 @@ function Minesweeper() {
     <ClickHandlers.Provider
       value={{ onClick: handleClick, onRightClick: handleRightClick }}>
       <div className='container'>
+        <h4>{gameState && gameStateDescription[gameState]}</h4>
         <div className={styles.frame}>
           <div className={styles.inner}>
             <StatusBar

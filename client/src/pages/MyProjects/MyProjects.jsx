@@ -1,4 +1,3 @@
-// MyProjects.jsx
 import {
   Container,
   Typography,
@@ -11,27 +10,7 @@ import {
   Stack,
 } from "@mui/material";
 import styles from "./MyProjects.module.css";
-
-const projects = [
-  {
-    title: "Chess Game",
-    description: "I started this to practice game logic and Python OOP, combined with a FastAPI backend and React frontend.",
-    techStack: ["Python", "FastAPI", "Docker", "React"],
-    repo: "https://github.com/Zsezsu/chess-fs-app",
-  },
-  {
-    title: "Score Tracker Website",
-    description: "I wanted a tool to track scores easily during board game sessions with friends.",
-    techStack: ["TypeScript", "React", "MongoDB", "Express"],
-    repo: "https://github.com/Zsezsu/score-tracker-website",
-  },
-  {
-    title: "Weather App",
-    description: "This app helps me understand working with external APIs and improve UI/UX skills.",
-    techStack: ["Java", "Spring Boot", "PostgreSQL", "OpenWeatherAPI"],
-    repo: "https://github.com/Zsezsu/weather-app",
-  },
-];
+import { projects } from "../utils/projectData.js";
 
 function MyProjects() {
   return (
@@ -42,20 +21,29 @@ function MyProjects() {
 
       <Grid container spacing={3}>
         {projects.map((project, index) => (
-          <Grid size={{xs:12, sm:6}} key={index}>
+          <Grid size={{ xs: 12, sm: 6 }} key={index}>
             <Card className={styles.card}>
               <CardContent>
-                <Typography variant='h6' className={styles.cardTitle} sx={{mb:2}}>
+                <Typography
+                  variant='h6'
+                  className={styles.cardTitle}
+                  sx={{ mb: 2 }}>
                   {project.title}
                 </Typography>
-                <Typography variant='body2' className={styles.cardText} sx={{mb:2}}>
+                <Typography
+                  variant='body2'
+                  className={styles.cardText}
+                  sx={{ mb: 2 }}>
                   {project.description}
                 </Typography>
 
-                <Typography variant='subtitle2' className={styles.techTitle} sx={{mb:2}}>
+                <Typography
+                  variant='subtitle2'
+                  className={styles.techTitle}
+                  sx={{ mb: 2 }}>
                   Tech Stack
                 </Typography>
-                <Stack direction='row' spacing={1} flexWrap="wrap">
+                <Stack direction='row' spacing={1} flexWrap='wrap'>
                   {project.techStack.map((tech, i) => (
                     <Chip
                       key={i}

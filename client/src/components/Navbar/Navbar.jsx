@@ -1,10 +1,6 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Box,
-} from "@mui/material";
+import { AppBar, Toolbar, Typography } from "@mui/material";
 import NavbarButton from "./NavBarButton";
+import styles from "./Navbar.module.css";
 
 const navItems = [
   { label: "About me", path: "/" },
@@ -18,28 +14,17 @@ function Navbar() {
       position='sticky'
       elevation={0}
       color='transparent'
-      sx={{
-        backdropFilter: "blur(6px)",
-        backgroundColor: "rgba(255, 255, 255, 0.6)",
-        borderBottom: "1px solid rgba(0,0,0,0.1)",
-      }}>
-      <Toolbar sx={{ justifyContent: "space-between" }}>
-        <Typography
-          variant='h6'
-          component='div'
-          sx={{ fontWeight: "bold", color: "text.primary" }}>
+      className={styles.appBar}>
+      <Toolbar className={styles.toolbar}>
+        <Typography variant='h6' component='div' className={styles.brand}>
           Zsu Juhász
         </Typography>
 
-        <Box
-          sx={{
-            display: "flex",
-            gap: 3,
-          }}>
+        <div className={styles.nav}>
           {navItems.map((item, index) => (
-            <NavbarButton key={index} item={item}/>
+            <NavbarButton key={index} item={item} />
           ))}
-        </Box>
+        </div>
       </Toolbar>
     </AppBar>
   );

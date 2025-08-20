@@ -5,11 +5,11 @@ import ReactDOM from "react-dom/client";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme";
 import { BrowserRouter, Routes, Route } from "react-router";
-import MyGames from "./pages/MyGames/MyGames.jsx";
+import MyGames from "./pages/MyGames&MyProjects/MyGames.jsx";
 import Minesweeper from "./components/Minesweeper/Minesweeper.jsx";
 import Layout from "./components/Layout/Layout.jsx";
 import GameInfo from "./pages/GameInfo/GameInfo.jsx";
-import MyProjects from "./pages/MyProjects/MyProjects.jsx";
+import MyProjects from "./pages/MyGames&MyProjects/MyProjects.jsx";
 
 const root = document.getElementById("root");
 

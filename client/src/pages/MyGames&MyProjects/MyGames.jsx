@@ -8,7 +8,7 @@ import {
   Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import styles from "./MyGames.module.css";
+import styles from "./CardDesign.module.css";
 import { games } from "../data/gameData.js";
 
 function MyGames() {

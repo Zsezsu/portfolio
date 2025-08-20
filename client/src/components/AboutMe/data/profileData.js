@@ -1,5 +1,5 @@
 export const profileData = {
-  traits: [
+  coreValues: [
     {
       label: "Honesty",
       color: "#70c1b3",

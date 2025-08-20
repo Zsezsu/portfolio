@@ -10,7 +10,7 @@ import {
   Stack,
 } from "@mui/material";
 import styles from "./MyProjects.module.css";
-import { projects } from "../utils/projectData.js";
+import { projects } from "../data/projectData.js";
 
 function MyProjects() {
   return (

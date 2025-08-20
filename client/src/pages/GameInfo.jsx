@@ -8,7 +8,7 @@ import {
   Stack,
   Divider,
 } from "@mui/material";
-import { gameDetails } from "./utils/gameData.js";
+import { gameDetails } from "./data/gameData.js";
 
 function GameInfo() {
   const { gameName } = useParams();

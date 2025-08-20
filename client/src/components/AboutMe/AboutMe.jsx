@@ -3,9 +3,11 @@ import profilePicture from "./assets/prof_pic_2.jpg";
 import styles from "./AboutMe.module.css";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
-import { profileData } from "./utils/profileData";
+import { profileData } from "./data/profileData";
 
-const TRAITS = profileData.traits;
+const coreValues = profileData.coreValues;
+const experiences = profileData.experiences;
+const schools = profileData.educations;
 
 function AboutMe() {
   return (
@@ -45,7 +47,7 @@ function AboutMe() {
       </Typography>
 
       <Box className={styles.bubblesContainer}>
-        {TRAITS.map((trait, index) => (
+        {coreValues.map((trait, index) => (
           <Box
             key={index}
             className={styles.bubble}
@@ -71,8 +73,8 @@ function AboutMe() {
         ))}
       </Box>
 
-      <WorkExperience />
-      <Education />
+      <WorkExperience experiences={experiences}/>
+      <Education schools={schools}/>
     </Container>
   );
 }

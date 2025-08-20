@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import styles from "./MyGames.module.css";
-import { games } from "../utils/gameData.js";
+import { games } from "../data/gameData.js";
 
 function MyGames() {
   return (

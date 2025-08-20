@@ -1,11 +1,8 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { motion } from "framer-motion";
-import { profileData } from "./utils/profileData";
 
-const EXPERIENCES = profileData.experiences;
 
-function WorkExperience() {
-
+function WorkExperience({ experiences }) {
   return (
     <Box sx={{ mt: 16 }}>
       <Typography
@@ -19,7 +16,7 @@ function WorkExperience() {
         Work Experiences
       </Typography>
 
-      {EXPERIENCES.map((exp, idx) => (
+      {experiences.map((exp, idx) => (
         <motion.div
           key={idx}
           initial={{ opacity: 0, x: -40 }}
@@ -54,7 +51,7 @@ function WorkExperience() {
               </Box>
             ))}
 
-            {idx !== EXPERIENCES.length - 1 && <Divider sx={{ my: 4 }} />}
+            {idx !== experiences.length - 1 && <Divider sx={{ my: 4 }} />}
           </Box>
         </motion.div>
       ))}

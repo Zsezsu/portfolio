@@ -1,10 +1,8 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { motion } from "framer-motion";
-import { profileData } from "./utils/profileData";
 
-const educations = profileData.educations;
 
-function Education() {
+function Education({ schools }) {
   return (
     <Box sx={{ mt: 16 }}>
       <Typography
@@ -18,7 +16,7 @@ function Education() {
         Education
       </Typography>
 
-      {educations.map((edu, idx) => (
+      {schools.map((edu, idx) => (
         <motion.div
           key={idx}
           initial={{ opacity: 0, x: -40 }}
@@ -56,7 +54,7 @@ function Education() {
               </Box>
             ))}
 
-            {idx !== educations.length - 1 && <Divider sx={{ my: 4 }} />}
+            {idx !== schools.length - 1 && <Divider sx={{ my: 4 }} />}
           </Box>
         </motion.div>
       ))}

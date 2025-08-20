@@ -5,15 +5,17 @@ import {
   Box,
   Button,
   Link,
-  Stack,
   Divider,
 } from "@mui/material";
-import { gameDetails } from "./data/gameData.js";
+import { gameDetails } from "../data/gameData.js";
+import styles from "./GameInfo.module.css";
+import CustomButton from "./PlayButton.jsx";
 
 function GameInfo() {
   const { gameName } = useParams();
   const navigate = useNavigate();
   const game = gameDetails[gameName];
+  const underDevelopment = gameName === "chess";
 
   if (!game) {
     return (
@@ -26,47 +28,41 @@ function GameInfo() {
   }
 
   return (
-    <Container maxWidth='md' sx={{ mt: 6, mb: 6, textAlign: "center" }}>
-      <Button
+    <Container maxWidth='md' className={styles.container}>
+      <CustomButton
         variant='text'
-        color='primary'
-        onClick={() => navigate("/games")}
-        sx={{
-          mb: 2,
-          textTransform: "none",
-          fontWeight: "medium",
-          "&:hover": {
-            textDecoration: "underline",
-          },
-        }}>
-        ← Back to Games
-      </Button>
+        color='inherit'
+        link='/games'
+        title='← Back to Games'
+        className={styles.backButton}
+      />
 
-      <Typography variant='h3' color='primary' gutterBottom>
+      <Typography variant='h3' gutterBottom className={styles.title}>
         {game.title}
       </Typography>
 
-      <Divider sx={{ my: 2 }} />
+      <Divider className={styles.divider} />
 
-      <Box sx={{ mb: 4 }}>
-        <Typography variant='h5' color='secondary' gutterBottom>
+      <Box className={styles.section}>
+        <Typography variant='h5' gutterBottom className={styles.sectionTitle}>
           Why I Built This Game
         </Typography>
         <Typography variant='body1'>{game.why}</Typography>
       </Box>
 
-      <Box sx={{ mb: 4 }}>
-        <Typography variant='h5' color='secondary' gutterBottom>
+      <Box className={styles.section}>
+        <Typography variant='h5' gutterBottom className={styles.sectionTitle}>
           Game Description
         </Typography>
         <Typography variant='body1'>{game.description}</Typography>
       </Box>
 
-      <Box sx={{ mb: 4 }}>
-        <Typography variant='h5' color='secondary' gutterBottom>
+      <Box className={styles.section}>
+        <Typography variant='h5' gutterBottom className={styles.sectionTitle}>
           Game Tactics & Resources
         </Typography>
-        <Stack spacing={1} alignItems='center'>
+
+        <div className={styles.resources}>
           {game.resources.map((res, index) => (
             <Link
               key={index}
@@ -74,20 +70,22 @@ function GameInfo() {
               target='_blank'
               rel='noopener noreferrer'
               underline='hover'
-              color='primary'>
+              className={styles.resourceLink}>
               • {res.label}
             </Link>
           ))}
-        </Stack>
+        </div>
       </Box>
 
-      <Button
+      <CustomButton
+        title={
+          underDevelopment ? "Check my projects repo" : `Play ${game.title}`
+        }
         variant='contained'
         color='primary'
-        onClick={() => game.title === "Chess" ? navigate("/projects") : navigate(game.playLink)}
-        sx={{ mt: 2 }}>
-          {game.title === "Chess" ? `Check my projects repo` : `Play ${game.title}` }
-      </Button>
+        className={styles.cta}
+        link={game.playLink}
+      />
     </Container>
   );
 }

@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import MyGames from "./pages/MyGames/MyGames.jsx";
 import Minesweeper from "./components/Minesweeper/Minesweeper.jsx";
 import Layout from "./components/Layout/Layout.jsx";
-import GameInfo from "./pages/GameInfo.jsx";
+import GameInfo from "./pages/GameInfo/GameInfo.jsx";
 import MyProjects from "./pages/MyProjects/MyProjects.jsx";
 
 const root = document.getElementById("root");

@@ -34,6 +34,6 @@ export const gameDetails = {
       { label: "Chess Tactics Trainer", url: "https://chesstempo.com" },
       { label: "Beginner’s Guide to Chess", url: "https://www.chess.com/lessons" },
     ],
-    playLink: "/games/chess",
+    playLink: "/projects",
   },
 };

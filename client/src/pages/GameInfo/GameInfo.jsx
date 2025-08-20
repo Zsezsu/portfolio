@@ -1,19 +1,11 @@
-import { useParams, useNavigate } from "react-router-dom";
-import {
-  Container,
-  Typography,
-  Box,
-  Button,
-  Link,
-  Divider,
-} from "@mui/material";
+import { useParams } from "react-router-dom";
+import { Container, Typography, Box, Link, Divider } from "@mui/material";
 import { gameDetails } from "../data/gameData.js";
 import styles from "./GameInfo.module.css";
 import CustomButton from "./PlayButton.jsx";
 
 function GameInfo() {
   const { gameName } = useParams();
-  const navigate = useNavigate();
   const game = gameDetails[gameName];
   const underDevelopment = gameName === "chess";
 

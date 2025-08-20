@@ -1,8 +1,7 @@
 import { Container, Typography, Grid, Avatar, Box } from "@mui/material";
 import profilePicture from "./assets/prof_pic_2.jpg";
 import styles from "./AboutMe.module.css";
-import WorkExperience from "./WorkExperience";
-import Education from "./Education";
+import ResumeDetail from "./Resume/ResumeDetail";
 import { profileData } from "./data/profileData";
 
 const coreValues = profileData.coreValues;
@@ -22,10 +21,7 @@ function AboutMe() {
         </Grid>
 
         <Grid size={{ xs: 12, md: 8 }}>
-          <Typography
-            variant='h4'
-            gutterBottom
-            sx={{ color: "secondary.main", fontWeight: "bold" }}>
+          <Typography variant='h4' gutterBottom className={styles.header}>
             Software Developer Mentor
           </Typography>
           <Typography variant='body1'>
@@ -38,11 +34,7 @@ function AboutMe() {
         </Grid>
       </Grid>
 
-      <Typography
-        variant='h4'
-        gutterBottom
-        align='center'
-        sx={{ mt: 8, color: "secondary.main", fontWeight: "bold" }}>
+      <Typography variant='h4' gutterBottom align='center'>
         My core values
       </Typography>
 
@@ -73,8 +65,8 @@ function AboutMe() {
         ))}
       </Box>
 
-      <WorkExperience experiences={experiences}/>
-      <Education schools={schools}/>
+      <ResumeDetail work={true} experiences={experiences} />
+      <ResumeDetail work={false} experiences={schools} />
     </Container>
   );
 }

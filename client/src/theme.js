@@ -29,7 +29,8 @@ const theme = createTheme({
     fontFamily: "Roboto, sans-serif",
     h4: {
       marginBottom: "2rem",
-      fontWeight: "bold"
+      fontWeight: "bold",
+      color: secondary,
     },
   },
 });

@@ -12,6 +12,7 @@ function Footer() {
           <Link
             href='mailto:zsuzsanna.ilona.juhasz@gmail.com'
             underline='hover'
+            color='inherit'
             className={styles.emailLink}>
             <EmailIcon className={styles.icon} />
             zsuzsanna.ilona.juhasz@gmail.com
@@ -23,14 +24,16 @@ function Footer() {
             href='https://github.com/Zsezsu'
             target='_blank'
             rel='noopener noreferrer'
-            aria-label='GitHub'>
+            aria-label='GitHub'
+            color='inherit'>
             <GitHubIcon />
           </IconButton>
           <IconButton
             href='https://www.linkedin.com/in/zs-i-juhasz/'
             target='_blank'
             rel='noopener noreferrer'
-            aria-label='LinkedIn'>
+            aria-label='LinkedIn'
+            color='inherit'>
             <LinkedInIcon />
           </IconButton>
         </Box>
@@ -41,9 +44,12 @@ function Footer() {
           </Typography>
         </Box>
       </Container>
+
       <Box className={styles.backToTopWrapper}>
         <Link
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          underline='hover'
+          color='inherit'
           className={styles.backToTop}>
           ⬆ Back to top
         </Link>

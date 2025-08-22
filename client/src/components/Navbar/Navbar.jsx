@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
-import NavbarButton from "./NavBarButton";
+import NavbarButton from "./NavbarButton";
 import styles from "./Navbar.module.css";
 
 const navItems = [

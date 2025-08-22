@@ -119,8 +119,8 @@ export const profileData = {
         {
           title: "Fullstack Developer",
           description: [
-            "Completed an intensive full-stack developer program using the MERN stack.",
-            "Gained skills in JavaScript, React, Node.js, Python, SQL, Git, teamwork, and communication.",
+            "Completed an intensive full-stack developer program where both hard-skills and soft-skills have been developed",
+            "Gained skills in JavaScript, React, Node.js, Python, SQL, Java, Spring Boot, Git, teamwork, and communication.",
           ],
         },
       ],
@@ -133,7 +133,10 @@ export const profileData = {
         {
           title:
             "Diploma of Education in Tourism and Travel Services Management",
-          description: [],
+          description: [
+            "Studied the fundamentals of tourism and travel services management",
+            "Earned a Business English language certificate (B2 level)",
+          ],
         },
       ],
     },
@@ -144,7 +147,9 @@ export const profileData = {
       degrees: [
         {
           title: "High School Diploma",
-          description: [],
+          description: [
+                  "Completed secondary education with a focus on general studies at a Montessori-based institution",
+          ],
         },
       ],
     },

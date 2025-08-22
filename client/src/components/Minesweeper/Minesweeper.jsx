@@ -4,7 +4,7 @@ import BoardRow from "./BoardRow";
 import { generateBoard } from "./utils/generateBoard";
 import StatusBar from "./StatusBar";
 import styles from "./Minesweeper.module.css";
-import "./minesweeper.css";
+import "./Minesweeper.css";
 import { useStopwatch } from "./hooks/useStopwatch";
 
 const SIZE = 10;

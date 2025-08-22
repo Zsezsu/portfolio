@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.field {
+    width: 32px;
+    height: 32px;
+}
+
+img {
+    width: 32px;
+    height: 32px;
+}

@@ -1,0 +1,35 @@
+.title {
+  color: var(--color-secondary);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.35em;
+}
+
+.item {
+  margin-top: 64px;
+  margin-bottom: 40px;
+}
+
+.dates {
+  color: var(--color-primary);
+  margin-bottom: 0.35em; 
+}
+
+.role {
+  margin-bottom: 16px;
+}
+
+.roleTitle {
+  font-weight: 500;
+}
+
+.roleList {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  padding-left: 1.2em;
+}
+
+.divider {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}

@@ -1,0 +1,54 @@
+.footer {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.left,
+.center,
+.right {
+  margin: 0.5rem 0;
+}
+
+.emailLink {
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+  text-decoration: none; 
+}         
+
+.emailLink:hover {
+  color: var(--color-primary);
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+.center a:hover,
+.center button:hover {
+  color: var(--color-primary);
+}
+
+.backToTopWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.backToTop {
+  cursor: pointer;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.backToTop:hover {
+  color: var(--color-primary);
+}

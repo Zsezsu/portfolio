@@ -1,0 +1,56 @@
+.container {
+  margin-top: 48px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.backButton {
+  margin-bottom: 16px;
+  text-transform: none;
+  font-weight: 500;
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.backButton:hover {
+  text-decoration: underline;
+  background: transparent;
+}
+
+.title {
+  color: var(--color-primary);
+}
+
+.divider {
+  margin: 16px 0;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.sectionTitle {
+  color: var(--color-secondary);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.resources {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.resourceLink {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.resourceLink:hover {
+  text-decoration: underline;
+}
+
+.cta {
+  margin-top: 16px;
+}

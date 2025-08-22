@@ -1,0 +1,73 @@
+.wrapper {
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+.cardWrap {
+  position: relative;
+  padding: 2px;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  transform: translateZ(0);
+  transform-origin: center bottom;
+  will-change: transform, box-shadow;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+  cursor: default;
+}
+
+.cardWrap:hover .card,
+.card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardWrap:hover .card,
+  .card:focus-within {
+    transition: none;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.cardTitle {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cardText {
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.techTitle {
+  margin-top: 1rem;
+  color: var(--color-primary);
+}
+
+.button {
+  margin-left: 0.5rem;
+}
+
+.chip {
+  margin-top: 0.5rem;
+}

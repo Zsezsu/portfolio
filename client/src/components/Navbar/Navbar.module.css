@@ -1,0 +1,47 @@
+.appBar {
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-weight: bold;
+  color: var(--color-text-primary);
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+
+.navLink.active {
+  color: var(--color-secondary);
+}
+
+.navButton {
+  font-weight: 500;
+  position: relative;
+  border-radius: 0;
+  text-transform: none;
+  background: transparent;
+}
+
+.navLink.active .navButton {
+  border-bottom: 2px solid var(--color-secondary);
+  font-weight: 700;
+}
+
+.navButton:hover a{
+  background-color: transparent;
+}

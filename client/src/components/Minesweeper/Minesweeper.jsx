@@ -18,10 +18,10 @@ const gameStates = {
   lost: "lost",
 };
 const gameStateDescription = {
-  ready: "Minesweeper game is ready to start, just click on any field below",
+  ready: "Minesweeper game is ready to start, just click on any field below.",
   running: "The game is running, Good luck!",
   won: "Congratulations, you won!",
-  lost: "Unfortunately you lost :( Just click on the emoji to restart",
+  lost: "Unfortunately you lost :( Just click on the emoji to restart.",
 };
 
 function Minesweeper() {

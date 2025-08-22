@@ -2,7 +2,7 @@ export const games = [
   {
     title: "Minesweeper",
     path: "/games/game-info/minesweeper",
-    description: "I love this game, so I've created my version. Click for more details",
+    description: "I love this game, so I've created my version. Click for more details.",
   },
   {
     title: "Chess Game",
@@ -15,7 +15,7 @@ export const gameDetails = {
   minesweeper: {
     title: "Minesweeper",
     why: `This game is much more than simple clicking. What I love about it is that it seems incredibly simple, yet it is full of deeper tactical possibilities. 
-    It beautifully combines logical thinking with skill and speed. So I was curious and wanted to see how it works under the hood`,
+    It beautifully combines logical thinking with skill and speed. So I was curious and wanted to see how it works under the hood.`,
     description:
       "Minesweeper is a classic puzzle game where the goal is to uncover all cells that do not contain mines. Clicking a mine ends the game.",
     resources: [

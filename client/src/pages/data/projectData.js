@@ -1,7 +1,7 @@
 export const projects = [
   {
     title: "Chess Game",
-    description: "I started this to practice game logic and Python OOP, combined with a FastAPI backend and dockerization",
+    description: "I started this to practice game logic and Python OOP, combined with a FastAPI backend and dockerization.",
     techStack: ["Python", "FastAPI", "Docker", "PostgreSQL"],
     repo: "https://github.com/Zsezsu/chess-fs-app",
   },

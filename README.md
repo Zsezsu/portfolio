@@ -75,11 +75,20 @@ Future plans include developing a **full-stack Chess application** that will als
 
 ## 🔮 Future Plans
 
+#### 🧑‍🤝‍🧑 Accessibility & UX
 - ♿ Improved accessibility & SEO  
+- 🌍 Multi-language support (language options)  
+- 🌙 Dark mode toggle  
+
+#### 🎮 Game Features
 - 💣 Extending **Minesweeper** features:  
   - 🎚️ Game modes: beginner / medium / expert  
   - ⏱️ Precise end-of-game timer  
-- ♟️ Build a full-stack **Chess game** with Python backend
+- ♟️ Build a full-stack **Chess game** with Python backend  
+
+#### 📂 Portfolio Enhancements
+- 📄 Downloadable CV (PDF format)  
+
 
 ---
 

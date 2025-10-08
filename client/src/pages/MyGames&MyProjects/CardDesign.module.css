@@ -12,6 +12,8 @@
 .cardWrap {
   position: relative;
   padding: 2px;
+  width: 100%;
+  height: 100%;
 }
 
 .card {
@@ -26,9 +28,11 @@
   transform: translateZ(0);
   transform-origin: center bottom;
   will-change: transform, box-shadow;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
 
   cursor: default;
+  
 }
 
 .cardWrap:hover .card,
@@ -68,6 +72,3 @@
   margin-left: 0.5rem;
 }
 
-.chip {
-  margin-top: 0.5rem;
-}

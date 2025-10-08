@@ -19,7 +19,7 @@ function MyProjects() {
         My Projects
       </Typography>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} alignItems="stretch">
         {projects.map((project, index) => (
           <Grid size={{ xs: 12, sm: 6 }} key={index}>
             <div className={styles.cardWrap}>
@@ -44,7 +44,7 @@ function MyProjects() {
                     sx={{ mb: 2 }}>
                     Tech Stack
                   </Typography>
-                  <Stack direction='row' spacing={1} flexWrap='wrap'>
+                  <Stack direction='row' flexWrap='wrap' gap={1}>
                     {project.techStack.map((tech, i) => (
                       <Chip
                         key={i}

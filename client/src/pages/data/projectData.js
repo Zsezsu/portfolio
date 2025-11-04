@@ -14,7 +14,13 @@ export const projects = [
     ],
     repo: "https://github.com/Zsezsu/issue-tracker",
   },
-
+    {
+    title: "CV Processor App",
+    description:
+      "AI-powered backend built with Java and Spring Boot, leveraging OpenAI’s LLM API to extract, analyze and validate CV inputs.",
+    techStack: ["Java", "Spring Boot", "LLM", "OpenAI API"],
+    repo: "https://github.com/Zsezsu/cv-processor-app",
+  },
   {
     title: "Chess Game",
     description:

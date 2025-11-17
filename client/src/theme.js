@@ -1,38 +1,63 @@
 import { createTheme } from "@mui/material/styles";
 
-const primary = "#70c1b3";
-const secondary = "#1f7defff";
-const background = "#f4f9f9";
-const textPrimary = "#5fabe9ff";
-
-document.documentElement.style.setProperty("--color-primary", primary);
-document.documentElement.style.setProperty("--color-secondary", secondary);
-document.documentElement.style.setProperty("--color-bg", background);
-document.documentElement.style.setProperty("--color-text-primary", textPrimary);
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: primary,
-    },
-    secondary: {
-      main: secondary,
-    },
-    background: {
-      default: background,
-    },
-    text: {
-      primary: textPrimary,
-    },
+const palettes = {
+  light: {
+    primary: "#70c1b3",
+    secondary: "#1f7defff",
+    background: "#f4f9f9",
+    textPrimary: "#5fabe9ff",
+    textSecondary: "#555",
+    surface: "#ffffff",
   },
-  typography: {
-    fontFamily: "Roboto, sans-serif",
-    h4: {
-      marginBottom: "2rem",
-      fontWeight: "bold",
-      color: secondary,
-    },
+  dark: {
+    primary: "#70c1b3",
+    secondary: "#9ec9ff",
+    background: "#0f172a",
+    textPrimary: "#f4f9f9",
+    textSecondary: "#cbdef7",
+    surface: "#1e293b",
   },
-});
+};
 
-export default theme;
+const cssVarMap = {
+  "--color-primary": "primary",
+  "--color-secondary": "secondary",
+  "--color-bg": "background",
+  "--color-text-primary": "textPrimary",
+};
+
+export const applyCssVariables = (mode) => {
+  const palette = palettes[mode];
+  if (!palette) throw new Error(`Unknown color mode: ${mode}`);
+  const root = document.documentElement;
+  Object.entries(cssVarMap).forEach(([cssVar, token]) => {
+    root.style.setProperty(cssVar, palette[token]);
+  });
+};
+
+export const createAppTheme = (mode = "dark") => {
+  const palette = palettes[mode];
+  return createTheme({
+    palette: {
+      mode,
+      primary: { main: palette.primary },
+      secondary: { main: palette.secondary },
+      background: {
+        default: palette.background,
+        paper: palette.surface,
+      },
+      text: {
+        primary: palette.textPrimary,
+        secondary: palette.textSecondary,
+      },
+    },
+    typography: {
+      fontFamily: "Roboto, sans-serif",
+      h4: {
+        marginBottom: "2rem",
+        fontWeight: "bold",
+        color: palette.secondary,
+      },
+    },
+  });
+};

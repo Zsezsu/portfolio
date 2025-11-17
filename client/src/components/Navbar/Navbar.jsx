@@ -1,7 +1,16 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import NavbarButton from "./NavbarButton";
 import styles from "./Navbar.module.css";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { useColorMode } from "../../context/ColorModeContext";
 
 const navItems = [
   { label: "About me", path: "/" },
@@ -10,6 +19,7 @@ const navItems = [
 ];
 
 function Navbar() {
+  const { mode, toggleMode } = useColorMode();
   return (
     <AppBar
       position='sticky'
@@ -30,6 +40,22 @@ function Navbar() {
           {navItems.map((item, index) => (
             <NavbarButton key={index} item={item} />
           ))}
+          <Tooltip
+            title={
+              mode === "light" ? "Switch to dark mode" : "Switch to light mode"
+            }>
+            <IconButton
+              onClick={toggleMode}
+              aria-label='Toggle color mode'
+              className={styles.themeToggle}
+              size='small'>
+              {mode === "light" ? (
+                <DarkModeIcon fontSize='small' />
+              ) : (
+                <LightModeIcon fontSize='small' />
+              )}
+            </IconButton>
+          </Tooltip>
         </div>
       </Toolbar>
     </AppBar>

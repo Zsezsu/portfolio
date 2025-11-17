@@ -2,8 +2,6 @@ import "./index.css";
 import App from "./App.jsx";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import theme from "./theme";
 import { BrowserRouter, Routes, Route } from "react-router";
 import MyGames from "./pages/MyGames&MyProjects/MyGames.jsx";
 import Minesweeper from "./components/Minesweeper/Minesweeper.jsx";
@@ -11,13 +9,14 @@ import Layout from "./components/Layout/Layout.jsx";
 import GameInfo from "./pages/GameInfo/GameInfo.jsx";
 import MyProjects from "./pages/MyGames&MyProjects/MyProjects.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import { ColorModeProvider } from "./context/ColorModeContext";
+
 
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <ColorModeProvider>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollToTop/>
         <Routes>
@@ -30,6 +29,6 @@ ReactDOM.createRoot(root).render(
           </Route>
         </Routes>
       </BrowserRouter>
-    </ThemeProvider>
+    </ColorModeProvider>
   </React.StrictMode>
 );

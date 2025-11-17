@@ -22,17 +22,27 @@ function AboutMe() {
 
         <Grid size={{ xs: 12, md: 8 }}>
           <Typography variant='h4' gutterBottom className={styles.header}>
-            Software Developer Mentor
+            Software Developer
           </Typography>
           <Typography variant='body1'>
-            I believe in growth mindset, which means skills can be developed
-            through continuous learning and effort. I try to live my life by
-            looking at challenges as opportunities and mistakes as valuable
-            learning experiences. This is what I teach my students and it
-            provides a safe environment in which we can grow and work with ease.
+            Full-stack developer building well-structured, modern web
+            applications using{" "}
+            <strong>
+              JavaScript, TypeScript, React, Node.js, Java and Python supported
+              by LLM-based workflows and Vibe Coding.{" "}
+            </strong>
+            I work confidently in collaborative engineering environments,
+            supporting team workflows and continuous improvement. I believe in
+            growth mindset, which means skills can be developed through
+            continuous learning and effort. I try to live my life by looking at
+            challenges as opportunities and mistakes as valuable learning
+            experiences.
           </Typography>
         </Grid>
       </Grid>
+
+      <ResumeDetail work={true} experiences={experiences} />
+      <ResumeDetail work={false} experiences={schools} />
 
       <Typography variant='h4' gutterBottom align='center'>
         My core values
@@ -64,9 +74,6 @@ function AboutMe() {
           </Box>
         ))}
       </Box>
-
-      <ResumeDetail work={true} experiences={experiences} />
-      <ResumeDetail work={false} experiences={schools} />
     </Container>
   );
 }

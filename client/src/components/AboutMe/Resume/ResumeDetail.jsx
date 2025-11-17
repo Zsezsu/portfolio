@@ -5,7 +5,7 @@ import ResumeItem from "./ResumeItem";
 
 function ResumeDetail({ work, experiences }) {
   return (
-    <Box className={styles.wrapper}>
+    <Box sx={{ mt: 4}}>
       <Typography variant='h4' className={styles.title}>
         {work ? "Work Experiences" : "Education"}
       </Typography>
@@ -18,7 +18,7 @@ function ResumeDetail({ work, experiences }) {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}>
           <Box className={styles.item}>
-            <Typography variant='h6' className={styles.company}>
+            <Typography variant='h6'>
               {work ? exp.company : exp.institution} • {exp.location}
             </Typography>
 
@@ -32,7 +32,7 @@ function ResumeDetail({ work, experiences }) {
             <ResumeItem details={work ? exp.roles : exp.degrees} />
 
             {idx !== experiences.length - 1 && (
-              <Divider className={styles.divider} />
+              <Divider className={styles.divider} sx={{mt: 4}}/>
             )}
           </Box>
         </motion.div>

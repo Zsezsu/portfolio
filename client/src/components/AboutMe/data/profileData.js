@@ -77,33 +77,37 @@ export const profileData = {
       dates: "Jan 2023 – Present",
       roles: [
         {
-          title: "Mentor (Associate level)",
+          title: "Software Developer & Mentor (Full-Stack)",
           description: [
-            "Mentor students in full-stack development using the MERN stack.",
-            "Lead workshops on React, Express, MongoDB.",
-            "Facilitate soft skill workshops: Feedback, Growth Mindset.",
-          ],
-        },
-        {
-          title: "Mentor (Junior level)",
-          description: [
-            'Supported students through a "learning by teaching" approach.',
-            "Facilitated workshops on JavaScript, HTML, CSS, DOM, Web API.",
+            "Designed and developed programming learning units in JavaScript, Node.js, React, and Git.",
+            "Implemented reference solutions, built full-stack examples, and pushed production-ready code to GitHub.",
+            "Created backend tasks in Node.js/Express, writing clean, maintainable example implementations for students.",
+            "Built frontend units in React, including component architecture, routing, state management, and real-world problem-solving examples.",
+            "Developed Git workflows and GitHub processes used by hundreds of students: branching, PR reviews, conflict resolution.",
+            "Conducted code reviews, debug sessions, and pair programming to guide students through real-world engineering problems.",
+            "Facilitated workshops in JavaScript, React, Git, Node.js, Express, Growth Mindset, and Feedback topics.",
           ],
         },
       ],
     },
+
     {
       company: "Netrisk Group",
       location: "Budapest, Hungary",
-      dates: "Feb 2017 – Aug 2021",
+      dates: "Feb 2017 – Oct 2021",
       roles: [
         {
           title: "Team Leader, Telecommunications Department",
           description: [
-            "Oversaw daily operations and coordinated team activities.",
-            "Improved processes, monitored performance, supported staff.",
-            "Worked with management to meet targets and maintain quality.",
+            "Rebuilt a previously unstable, high-turnover department into a cohesive and motivated 6-member team.",
+            "Eliminated staff fluctuation through clear expectations, transparency, and consistent leadership.",
+            "Established structured daily operations, transparent communication systems, and predictable workflows.",
+          ],
+        },
+        {
+          title: "Operator, Telecommunications Department",
+          description: [
+            "I joined Netrisk as an operator and was promoted after one year to Team Leader based on my performance and reliability.",
           ],
         },
       ],
@@ -148,7 +152,7 @@ export const profileData = {
         {
           title: "High School Diploma",
           description: [
-                  "Completed secondary education with a focus on general studies at a Montessori-based institution.",
+            "Completed secondary education with a focus on general studies at a Montessori-based institution.",
           ],
         },
       ],

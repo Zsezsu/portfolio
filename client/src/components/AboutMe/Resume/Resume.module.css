@@ -2,7 +2,6 @@
   color: var(--color-secondary);
   font-weight: bold;
   text-align: center;
-  margin-bottom: 0.35em;
 }
 
 .item {
@@ -12,7 +11,7 @@
 
 .dates {
   color: var(--color-primary);
-  margin-bottom: 0.35em; 
+  margin-bottom: 0.35em;
 }
 
 .role {

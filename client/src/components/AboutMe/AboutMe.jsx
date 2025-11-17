@@ -25,15 +25,15 @@ function AboutMe() {
             Software Developer
           </Typography>
           <Typography variant='body1'>
-            Full-stack developer building well-structured, modern web
-            applications using{" "}
+            Full-stack developer skilled in{" "}
             <strong>
-              JavaScript, TypeScript, React, Node.js, Java and Python supported
-              by LLM-based workflows and Vibe Coding.{" "}
-            </strong>
-            I work confidently in collaborative engineering environments,
-            supporting team workflows and continuous improvement. I believe in
-            growth mindset, which means skills can be developed through
+              {" "}
+              JavaScript, TypeScript, React, Node.js, Java, and Python, with
+              practical use of LLM-assisted workflows in daily development.
+            </strong>{" "}
+            I thrive in collaborative engineering environments and focus on
+            clean code, maintainability, and continuous improvement. I believe
+            in growth mindset, which means skills can be developed through
             continuous learning and effort. I try to live my life by looking at
             challenges as opportunities and mistakes as valuable learning
             experiences.

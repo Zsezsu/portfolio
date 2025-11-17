@@ -1,4 +1,5 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import NavbarButton from "./NavbarButton";
 import styles from "./Navbar.module.css";
 
@@ -16,7 +17,12 @@ function Navbar() {
       color='transparent'
       className={styles.appBar}>
       <Toolbar className={styles.toolbar}>
-        <Typography variant='h6' component='div' className={styles.brand}>
+        <Typography
+          variant='h6'
+          component={Link}
+          to='/'
+          className={styles.brand}
+          sx={{ textDecoration: "none", color: "inherit" }}>
           Zsu Juhász
         </Typography>
 

@@ -19,11 +19,16 @@ function MyProjects() {
         My Projects
       </Typography>
 
-      <Grid container spacing={3} alignItems="stretch">
+      <Grid container spacing={3} alignItems='stretch'>
         {projects.map((project, index) => (
           <Grid size={{ xs: 12, sm: 6 }} key={index}>
             <div className={styles.cardWrap}>
-              <Card className={styles.card}>
+              <Card
+                className={styles.card}
+                component='a'
+                href={project.repo}
+                target='_blank'
+                rel='noopener noreferrer'>
                 <CardContent>
                   <Typography
                     variant='h6'
@@ -37,7 +42,6 @@ function MyProjects() {
                     sx={{ mb: 2 }}>
                     {project.description}
                   </Typography>
-
                   <Typography
                     variant='subtitle2'
                     className={styles.techTitle}
@@ -57,13 +61,9 @@ function MyProjects() {
                     ))}
                   </Stack>
                 </CardContent>
+
                 <CardActions>
-                  <Button
-                    href={project.repo}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    variant='outlined'
-                    className={styles.button}>
+                  <Button variant='outlined' className={styles.button}>
                     GitHub repo link
                   </Button>
                 </CardActions>

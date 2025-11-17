@@ -22,7 +22,7 @@ function MyGames() {
         {games.map((game, index) => (
           <Grid size={{ xs: 12, sm: 6 }} key={index}>
             <div className={styles.cardWrap}>
-              <Card className={styles.card}>
+              <Card className={styles.card} component={Link} to={game.path}>
                 <CardContent>
                   <Typography variant='h6' className={styles.cardTitle}>
                     {game.title}
@@ -32,11 +32,7 @@ function MyGames() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button
-                    component={Link}
-                    to={game.path}
-                    variant='outlined'
-                    className={styles.button}>
+                  <Button variant='outlined' className={styles.button}>
                     Details
                   </Button>
                 </CardActions>

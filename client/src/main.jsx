@@ -9,7 +9,7 @@ import Layout from "./components/Layout/Layout.jsx";
 import GameInfo from "./pages/GameInfo/GameInfo.jsx";
 import MyProjects from "./pages/MyGames&MyProjects/MyProjects.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-import { ColorModeProvider } from "./context/ColorModeContext";
+import { ColorModeProvider } from "./context/ColorModeProvider.jsx";
 
 
 const root = document.getElementById("root");

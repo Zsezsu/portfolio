@@ -10,7 +10,7 @@ import NavbarButton from "./NavbarButton";
 import styles from "./Navbar.module.css";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { useColorMode } from "../../context/ColorModeContext";
+import { useColorMode } from "../../hooks/UseColorMode.jsx";
 
 const navItems = [
   { label: "About me", path: "/" },

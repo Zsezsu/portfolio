@@ -10,7 +10,8 @@ import NavbarButton from "./NavbarButton";
 import styles from "./Navbar.module.css";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { useColorMode } from "../../hooks/UseColorMode.jsx";
+import { ColorModeContext } from "../../context/ColorModeContext";
+import { useContext } from "react";
 
 const navItems = [
   { label: "About me", path: "/" },
@@ -19,7 +20,7 @@ const navItems = [
 ];
 
 function Navbar() {
-  const { mode, toggleMode } = useColorMode();
+  const { mode, toggleMode } = useContext(ColorModeContext);
   return (
     <AppBar
       position='sticky'

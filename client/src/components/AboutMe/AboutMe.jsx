@@ -1,5 +1,7 @@
 import { Container, Typography, Grid, Avatar, Box } from "@mui/material";
-import profilePicture from "./assets/prof_pic_2.jpg";
+import profilePicture2x from "./assets/prof_pic_2x.jpg";
+import profilePicture1x from "./assets/prof_pic_1x.jpg";
+
 import styles from "./AboutMe.module.css";
 import ResumeDetail from "./Resume/ResumeDetail";
 import { profileData } from "./data/profileData";
@@ -14,7 +16,9 @@ function AboutMe() {
       <Grid container spacing={4} alignItems='center'>
         <Grid size={{ xs: 12, md: 4 }}>
           <Avatar
-            src={profilePicture}
+            src={profilePicture2x}
+            slotProps={{ img: { srcSet: `${profilePicture1x} 1x, ${profilePicture2x} 2x`, sizes: "245px" } }}
+            
             alt='Profile'
             sx={{ width: 245, height: 245, margin: "0 auto" }}
           />

@@ -5,15 +5,15 @@ export const profileData = {
       color: "#70c1b3",
       top: "5%",
       left: "5%",
-      size: 155,
-      description: "Being transparent builds trust.",
+      size: 140,
+      description: "I believe transparent communication is key to effective collaboration.",
     },
     {
       label: "Accuracy",
       color: "#38818bff",
       top: "7%",
       left: "43%",
-      size: 145,
+      size: 130,
       description: "It is important to me to perform my tasks precisely.",
     },
     {
@@ -21,7 +21,7 @@ export const profileData = {
       color: "#72e7f6ff",
       top: "20%",
       left: "25%",
-      size: 155,
+      size: 145,
       description:
         "Learn from mistakes, set realistic goals, and focus on the process not just on the result.",
     },
@@ -30,7 +30,7 @@ export const profileData = {
       color: "#8beedaff",
       top: "23%",
       left: "60%",
-      size: 150,
+      size: 140,
       description: "I treat others well when I am at peace with myself.",
     },
     {
@@ -38,7 +38,7 @@ export const profileData = {
       color: "#4aef70ff",
       top: "52%",
       left: "45%",
-      size: 147,
+      size: 140,
       description:
         "I believe it is truly important to live in harmony with our environment and to minimize our impact on nature.",
     },
@@ -47,7 +47,7 @@ export const profileData = {
       color: "#7df5e9ff",
       top: "12%",
       left: "80%",
-      size: 145,
+      size: 133,
       description:
         "Effort improves us and the work you invest in will always pay off.",
     },
@@ -56,7 +56,7 @@ export const profileData = {
       color: "#3498db",
       top: "47%",
       left: "11%",
-      size: 145,
+      size: 137,
       description:
         "Everything I have achieved in my life so far I ascribe to my perseverance.",
     },
@@ -65,7 +65,7 @@ export const profileData = {
       color: "#a0f973ff",
       top: "57%",
       left: "75%",
-      size: 145,
+      size: 135,
       description: "Giving and receiving feedback is what helps us to improve.",
     },
   ],

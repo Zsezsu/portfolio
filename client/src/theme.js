@@ -8,6 +8,7 @@ const palettes = {
     textPrimary: "#5fabe9ff",
     textSecondary: "#555",
     surface: "#ffffff",
+    bubbleText: "#ffffff",
   },
   dark: {
     primary: "#70c1b3",
@@ -16,6 +17,7 @@ const palettes = {
     textPrimary: "#f4f9f9",
     textSecondary: "#cbdef7",
     surface: "#1e293b",
+    bubbleText: "#0f172a",
   },
 };
 
@@ -24,6 +26,7 @@ const cssVarMap = {
   "--color-secondary": "secondary",
   "--color-bg": "background",
   "--color-text-primary": "textPrimary",
+  "--color-bubble-text": "bubbleText",
 };
 
 export const applyCssVariables = (mode) => {

@@ -1,20 +1,39 @@
+.bubblesViewport {
+  overflow-x: hidden;
+  padding: 2rem 0; /* gives hover room above/below */
+}
+
 .bubblesContainer {
   position: relative;
   width: 100%;
   height: 350px;
   margin-bottom: 10%;
+  overflow: visible;
 }
 
 .bubble {
   position: absolute;
+  top: var(--bubble-top);
+  left: var(--bubble-left);
+  width: var(--bubble-size);
+  height: var(--bubble-size);
   perspective: 1000;
   transition: transform 0.3s ease;
-  cursor: default
+  cursor: default;
+  --bubble-scale: 1;
+  transform-origin: center;
 }
 
-.bubble:hover {
-  transform: scale(1.55);
+.bubble:hover .bubbleInner {
+  transform: rotateY(180deg) scale(calc(var(--bubble-scale) * 1.55));
   z-index: 10;
+}
+
+@media (hover: none) {
+  .bubble:active .bubbleInner{
+    transform: rotateY(180deg) scale(calc(var(--bubble-scale) * 1.55));
+    z-index: 10;
+  }
 }
 
 .bubbleInner {
@@ -23,10 +42,6 @@
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
-}
-
-.bubbleInner:hover {
-  transform: rotateY(180deg);
 }
 
 .bubbleFront,
@@ -44,11 +59,33 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   animation: grow 4s ease-in-out infinite;
   backface-visibility: hidden;
-  padding: 1rem;
+  padding: 0.6rem;
   font-size: 0.85rem;
+  color: var(--color-bubble-text);
 }
 
 .bubbleBack {
   transform: rotateY(180deg);
-  font-size: 0.75rem;
+  font-size: 0.55rem;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .bubblesContainer {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .bubble {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto;
+    width: clamp(110px, 35vw, 150px);
+    height: clamp(110px, 35vw, 150px);
+    --bubble-scale: 0.75;
+  }
 }

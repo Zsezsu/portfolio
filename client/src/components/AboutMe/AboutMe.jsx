@@ -17,8 +17,12 @@ function AboutMe() {
         <Grid size={{ xs: 12, md: 4 }}>
           <Avatar
             src={profilePicture2x}
-            slotProps={{ img: { srcSet: `${profilePicture1x} 1x, ${profilePicture2x} 2x`, sizes: "245px" } }}
-            
+            slotProps={{
+              img: {
+                srcSet: `${profilePicture1x} 1x, ${profilePicture2x} 2x`,
+                sizes: "245px",
+              },
+            }}
             alt='Profile'
             sx={{ width: 245, height: 245, margin: "0 auto" }}
           />
@@ -52,31 +56,32 @@ function AboutMe() {
         My core values
       </Typography>
 
-      <Box className={styles.bubblesContainer}>
-        {coreValues.map((trait, index) => (
-          <Box
-            key={index}
-            className={styles.bubble}
-            style={{
-              top: trait.top,
-              left: trait.left,
-              width: trait.size,
-              height: trait.size,
-            }}>
-            <Box className={styles.bubbleInner}>
-              <Box
-                className={styles.bubbleFront}
-                style={{ backgroundColor: trait.color }}>
-                {trait.label}
-              </Box>
-              <Box
-                className={styles.bubbleBack}
-                style={{ backgroundColor: trait.color }}>
-                {trait.description}
+      <Box className={styles.bubblesViewport}>
+        <Box className={styles.bubblesContainer}>
+          {coreValues.map((trait, index) => (
+            <Box
+              key={index}
+              className={styles.bubble}
+              style={{
+                "--bubble-top": trait.top,
+                "--bubble-left": trait.left,
+                "--bubble-size": `${trait.size}px`,
+              }}>
+              <Box className={styles.bubbleInner}>
+                <Box
+                  className={styles.bubbleFront}
+                  style={{ backgroundColor: trait.color }}>
+                  {trait.label}
+                </Box>
+                <Box
+                  className={styles.bubbleBack}
+                  style={{ backgroundColor: trait.color }}>
+                  {trait.description}
+                </Box>
               </Box>
             </Box>
-          </Box>
-        ))}
+          ))}
+        </Box>
       </Box>
     </Container>
   );
